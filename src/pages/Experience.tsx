@@ -11,7 +11,7 @@ const Experience = () => {
         {/* Cognizant */}
         <div className="experience-item">
           <div className="experience-meta">
-            <h3>Cloud Infrastructure & AI Intern</h3>
+            <h3>Programmer Analyst Trainee</h3>
             <p className="company">Cognizant Technology Solutions</p>
             <p className="date mono-text">Dec 2024 — Apr 2025</p>
           </div>
