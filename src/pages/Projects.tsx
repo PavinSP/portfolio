@@ -154,7 +154,7 @@ const Projects = () => {
                 </a>
               </div>
             </div>
-            <h3 className="project-name">Mechanism of Action (MoA) Prediction</h3>
+            <h3 className="project-name">GPU-Accelerated Multi-Label Classification for Mechanism of Action Prediction in High-Throughput Drug Discovery</h3>
             <div className="project-desc">
               <p>Bachelor Thesis Project: Developed an end-to-end multi-label classification pipeline utilizing GPU-accelerated XGBoost to predict the biological mechanisms of action of various drugs.</p>
               <p>Engineered comprehensive statistical features and handled extreme class imbalance, evaluating robust model performance via ROC-AUC and Precision-Recall metrics.</p>
