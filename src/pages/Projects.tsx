@@ -158,6 +158,28 @@ const Projects = () => {
           </ul>
         </div>
 
+        <div className="project-card">
+          <div className="project-top">
+            <div className="project-header-flex">
+              <div className="project-links">
+                <a href="https://tijer.org/tijer/certificatemanager.php?a_rid=151048" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                  🏆 Publication Certificate
+                </a>
+              </div>
+            </div>
+            <h3 className="project-name">Bionic Eye Research Publication</h3>
+            <div className="project-desc">
+              <p>Research study exploring the mechanics, constraints, and technological improvements of the Argus II retinal prosthesis system for restoring vision.</p>
+              <p>Co-authored <em>"Bionic Eye"</em>. Published in TIJER (Vol 11, Issue 2, February 2024).</p>
+            </div>
+          </div>
+          <ul className="project-tech-list mono-text">
+            <li>Research</li>
+            <li>Prosthetics</li>
+            <li>Biomedical Engineering</li>
+          </ul>
+        </div>
+
       </div>
 
     </div>
