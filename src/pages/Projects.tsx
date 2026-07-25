@@ -85,10 +85,10 @@ const Projects = () => {
             <div className="project-header-flex">
               <div className="project-links">
                 <a href="https://tijer.org/tijer/papers/TIJERC001274.pdf" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  📄 Read Paper
+                  🔗 Read Paper
                 </a>
                 <a href="https://tijer.org/tijer/certificatemanager.php?a_rid=153454" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  🏆 Certificate
+                  🔗 Certificate
                 </a>
               </div>
             </div>
@@ -150,7 +150,7 @@ const Projects = () => {
             <div className="project-header-flex">
               <div className="project-links">
                 <a href="https://github.com/PavinSP/moa-prediction-thesis/blob/main/MoA_Prediction_Bachelor_Thesis.pdf" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  📄 Thesis Report
+                  🔗 Thesis Report
                 </a>
                 <a href="https://github.com/PavinSP/moa-prediction-thesis" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                   <GithubIcon size={16} /> GitHub
@@ -191,10 +191,10 @@ const Projects = () => {
             <div className="project-header-flex">
               <div className="project-links">
                 <a href="https://tijer.org/tijer/papers/TIJERB001114.pdf" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  📄 Read Paper
+                  🔗 Read Paper
                 </a>
                 <a href="https://tijer.org/tijer/certificatemanager.php?a_rid=151048" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  🏆 Certificate
+                  🔗 Certificate
                 </a>
               </div>
             </div>

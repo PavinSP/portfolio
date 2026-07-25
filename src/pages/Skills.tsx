@@ -56,22 +56,22 @@ const Skills = () => {
             <li>Deep Learning for CV (MathWorks, Coursera)</li>
             <li>
               <a href="/portfolio/certificates/Data_Warehouse_Certificate.pdf" target="_blank" rel="noopener noreferrer" style={{color: 'var(--accent-color)', textDecoration: 'none'}}>
-                Data Warehouse Fundamentals (Udemy) 📄
+                Data Warehouse Fundamentals (Udemy) 🔗
               </a>
             </li>
             <li>
               <a href="/portfolio/certificates/Data_Modeling_Certificate.pdf" target="_blank" rel="noopener noreferrer" style={{color: 'var(--accent-color)', textDecoration: 'none'}}>
-                Data Modeling & Relational DB Design (Udemy) 📄
+                Data Modeling & Relational DB Design (Udemy) 🔗
               </a>
             </li>
             <li>
               <a href="/portfolio/certificates/Intro_to_Linux_Certificate.pdf" target="_blank" rel="noopener noreferrer" style={{color: 'var(--accent-color)', textDecoration: 'none'}}>
-                Intro to Linux (Udemy) 📄
+                Intro to Linux (Udemy) 🔗
               </a>
             </li>
             <li>
               <a href="/portfolio/certificates/NASSCOM_Data_Science_Certificate.pdf" target="_blank" rel="noopener noreferrer" style={{color: 'var(--accent-color)', textDecoration: 'none'}}>
-                Data Science for Beginners (NASSCOM) 📄
+                Data Science for Beginners (NASSCOM) 🔗
               </a>
             </li>
           </ul>
