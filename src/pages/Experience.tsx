@@ -29,7 +29,7 @@ const Experience = () => {
         {/* Edify */}
         <div className="experience-item">
           <div className="experience-meta">
-            <h3>Platform Engineering Intern</h3>
+            <h3>Software Engineering Intern</h3>
             <p className="company">Edify Techno Solutions</p>
             <p className="date mono-text">May 2024</p>
           </div>
