@@ -56,7 +56,11 @@ const Skills = () => {
             <li>Deep Learning for CV (MathWorks, Coursera)</li>
             <li>Data Warehouse Fundamentals (Udemy)</li>
             <li>Data Modeling & Relational DB Design</li>
-            <li>Data Science for Beginners (NASSCOM)</li>
+            <li>
+              <a href="/portfolio/certificates/NASSCOM_Data_Science_Certificate.pdf" target="_blank" rel="noopener noreferrer" style={{color: 'var(--accent-color)', textDecoration: 'none'}}>
+                Data Science for Beginners (NASSCOM) 📄
+              </a>
+            </li>
           </ul>
         </div>
       </div>
