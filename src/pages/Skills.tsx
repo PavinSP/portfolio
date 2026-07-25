@@ -11,35 +11,42 @@ const Skills = () => {
         <div className="skill-category">
           <h3>Computer Vision & Deep Learning</h3>
           <ul className="skill-list mono-text">
-            <li>PyTorch & Torchvision</li>
-            <li>CNN fine-tuning & Transfer learning</li>
-            <li>Foundation model fine-tuning (SAM-family)</li>
-            <li>Real-time inference benchmarking</li>
-            <li>Subject-level generalisation testing</li>
-            <li>Image preprocessing (illumination/contrast)</li>
+            <li>PyTorch, OpenCV, NumPy</li>
+            <li>Deep Neural Networks (CNNs, ResNet)</li>
+            <li>MobileNetV3, SAM Models (Micro-SAM, CellSAM)</li>
+            <li>Computer Vision (General)</li>
+            <li>Reinforcement Learning, Sensor Fusion (HMMs, Bayesian)</li>
           </ul>
         </div>
         
         <div className="skill-category">
-          <h3>NLP & Machine Learning</h3>
+          <h3>NLP, GenAI & Classical ML</h3>
           <ul className="skill-list mono-text">
-            <li>HuggingFace Transformers</li>
-            <li>LLM Orchestration (LangChain)</li>
-            <li>Prompt Engineering</li>
-            <li>Scikit-learn, XGBoost, CatBoost</li>
-            <li>Model evaluation (F1, ROC-AUC)</li>
+            <li>HuggingFace Transformers, DistilBERT</li>
+            <li>OpenAI / Azure OpenAI APIs, LangChain</li>
+            <li>Prompt Engineering, RAG Pipelines</li>
+            <li>Natural Language Processing, Information Extraction</li>
+            <li>Scikit-learn, CatBoost, XGBoost</li>
           </ul>
         </div>
 
         <div className="skill-category">
-          <h3>Software & Cloud Engineering</h3>
+          <h3>Programming & Web</h3>
           <ul className="skill-list mono-text">
-            <li>Python (OOP), SQL, Java</li>
-            <li>React, TypeScript, JavaScript</li>
-            <li>Flask, Streamlit, REST APIs</li>
+            <li>Python, SQL, Java, Bash</li>
+            <li>JavaScript, React, Flask</li>
+            <li>n8n (Workflow Automation)</li>
+            <li>REST APIs, JSON</li>
+          </ul>
+        </div>
+
+        <div className="skill-category">
+          <h3>Cloud, DevOps & Tools</h3>
+          <ul className="skill-list mono-text">
+            <li>Docker, Git & GitHub, CI/CD Concepts</li>
             <li>Microsoft Azure (VMs, Synapse)</li>
-            <li>Docker, Git, Linux (CLI)</li>
-            <li>Data Engineering (Pandas, ETL pipelines)</li>
+            <li>Linux (CLI)</li>
+            <li>Streamlit, Jupyter Notebook</li>
           </ul>
         </div>
 

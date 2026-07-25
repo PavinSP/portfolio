@@ -382,7 +382,28 @@ footer {
     font-size: 1.5rem;
   }
   
+  .nav-content {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
   .nav-links {
-    display: none;
+    display: flex;
+    gap: 1.5rem;
+    width: 100%;
+    justify-content: center;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  .page-content {
+    padding-top: 8rem;
   }
 }

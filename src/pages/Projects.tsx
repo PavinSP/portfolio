@@ -13,13 +13,14 @@ const Projects = () => {
         <div className="section-line"></div>
       </div>
       
+      {/* Computer Vision Section */}
+      <h3 style={{ color: 'var(--accent-color)', marginBottom: '1.5rem', marginTop: '1rem', fontSize: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
+        Computer Vision
+      </h3>
       <div className="projects-grid">
         
         <div className="project-card">
           <div className="project-top">
-            <div className="project-header-flex">
-              <span className="project-type mono-text">Computer Vision</span>
-            </div>
             <h3 className="project-name">Real-Time Driver Drowsiness Detection</h3>
             <div className="project-desc">
               <p>Fine-tuned MobileNetV3-Small in PyTorch for eye-state classification on the MRL Eye dataset (84,898 infrared images), reaching 98.2% validation accuracy.</p>
@@ -36,9 +37,6 @@ const Projects = () => {
 
         <div className="project-card">
           <div className="project-top">
-            <div className="project-header-flex">
-              <span className="project-type mono-text">Biomedical AI (CAIRO.THWS)</span>
-            </div>
             <h3 className="project-name">CellFoundry: Foundation Models for Instance Segmentation</h3>
             <div className="project-desc">
               <p>Working under Prof. Dr. Magda Gregorová to benchmark and fine-tune foundation models (Micro-SAM, CellSAM) for adipocyte instance segmentation in brightfield microscopy.</p>
@@ -52,10 +50,17 @@ const Projects = () => {
           </ul>
         </div>
 
+      </div>
+
+      {/* Generative AI Section */}
+      <h3 style={{ color: 'var(--accent-color)', marginBottom: '1.5rem', marginTop: '3rem', fontSize: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
+        Generative AI
+      </h3>
+      <div className="projects-grid">
+        
         <div className="project-card">
           <div className="project-top">
             <div className="project-header-flex">
-              <span className="project-type mono-text">NLP / GenAI (Hackathon)</span>
               <div className="project-links">
                 <a href="https://github.com/PavinSP/hackathon" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                   <GithubIcon size={16} /> GitHub
@@ -78,7 +83,37 @@ const Projects = () => {
         <div className="project-card">
           <div className="project-top">
             <div className="project-header-flex">
-              <span className="project-type mono-text">NLP (DAIL Hackathon)</span>
+              <div className="project-links">
+                <a href="https://www.tijer.org/viewpaperforall?paper=TIJERC001274" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                  📄 Read Paper
+                </a>
+              </div>
+            </div>
+            <h3 className="project-name">LLM-Orchestrated Resume Screening</h3>
+            <div className="project-desc">
+              <p>Built a multi-step pipeline using LangChain and Azure OpenAI for structured information extraction from highly unstructured candidate documents.</p>
+              <p>Co-authored <em>"Python-Powered ML for Next-Gen Resume Screening"</em>. Published in TIJER (Vol 11, Issue 7, July 2024).</p>
+            </div>
+          </div>
+          <ul className="project-tech-list mono-text">
+            <li>LangChain</li>
+            <li>Azure OpenAI</li>
+            <li>React</li>
+            <li>Flask</li>
+          </ul>
+        </div>
+
+      </div>
+
+      {/* Natural Language Processing Section */}
+      <h3 style={{ color: 'var(--accent-color)', marginBottom: '1.5rem', marginTop: '3rem', fontSize: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
+        Natural Language Processing
+      </h3>
+      <div className="projects-grid">
+
+        <div className="project-card">
+          <div className="project-top">
+            <div className="project-header-flex">
               <div className="project-links">
                 <a href="https://github.com/PavinSP/SniffTest-DIAL-Hackathon" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                   <GithubIcon size={16} /> GitHub
@@ -99,30 +134,16 @@ const Projects = () => {
           </ul>
         </div>
 
-        <div className="project-card">
-          <div className="project-top">
-            <div className="project-header-flex">
-              <span className="project-type mono-text">Full-Stack GenAI</span>
-            </div>
-            <h3 className="project-name">LLM-Orchestrated Resume Screening</h3>
-            <div className="project-desc">
-              <p>Built a multi-step pipeline using LangChain and Azure OpenAI for structured information extraction from highly unstructured candidate documents.</p>
-              <p>Designed a React/TypeScript frontend dashboard with live extracted-skill tags and candidate match-scores. Published in TIJER (Vol 11, Issue 7).</p>
-            </div>
-          </div>
-          <ul className="project-tech-list mono-text">
-            <li>LangChain</li>
-            <li>Azure OpenAI</li>
-            <li>React</li>
-            <li>Flask</li>
-          </ul>
-        </div>
+      </div>
+
+      {/* Machine Learning Section */}
+      <h3 style={{ color: 'var(--accent-color)', marginBottom: '1.5rem', marginTop: '3rem', fontSize: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
+        Machine Learning
+      </h3>
+      <div className="projects-grid">
 
         <div className="project-card">
           <div className="project-top">
-            <div className="project-header-flex">
-              <span className="project-type mono-text">Machine Learning</span>
-            </div>
             <h3 className="project-name">AI-Driven Ticket Confirmation Prediction</h3>
             <div className="project-desc">
               <p>Built an end-to-end ML pipeline predicting waitlisted railway ticket confirmations using CatBoost, evaluating robustness with F1-score and ROC-AUC.</p>
@@ -138,6 +159,7 @@ const Projects = () => {
         </div>
 
       </div>
+
     </div>
   );
 };
