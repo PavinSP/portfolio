@@ -144,6 +144,31 @@ const Projects = () => {
 
         <div className="project-card">
           <div className="project-top">
+            <div className="project-header-flex">
+              <div className="project-links">
+                <a href="https://github.com/PavinSP/moa-prediction-thesis/blob/main/MoA_Prediction_Bachelor_Thesis.pdf" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                  📄 Thesis Report
+                </a>
+                <a href="https://github.com/PavinSP/moa-prediction-thesis" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                  <GithubIcon size={16} /> GitHub
+                </a>
+              </div>
+            </div>
+            <h3 className="project-name">Mechanism of Action (MoA) Prediction</h3>
+            <div className="project-desc">
+              <p>Bachelor Thesis Project: Developed an end-to-end multi-label classification pipeline utilizing GPU-accelerated XGBoost to predict the biological mechanisms of action of various drugs.</p>
+              <p>Engineered comprehensive statistical features and handled extreme class imbalance, evaluating robust model performance via ROC-AUC and Precision-Recall metrics.</p>
+            </div>
+          </div>
+          <ul className="project-tech-list mono-text">
+            <li>Python</li>
+            <li>XGBoost</li>
+            <li>Scikit-learn</li>
+            <li>Pandas</li>
+          </ul>
+        </div>
+        <div className="project-card">
+          <div className="project-top">
             <h3 className="project-name">AI-Driven Ticket Confirmation Prediction</h3>
             <div className="project-desc">
               <p>Built an end-to-end ML pipeline predicting waitlisted railway ticket confirmations using CatBoost, evaluating robustness with F1-score and ROC-AUC.</p>
