@@ -14,6 +14,9 @@ const Experience = () => {
             <h3>Programmer Analyst Trainee</h3>
             <p className="company">Cognizant Technology Solutions</p>
             <p className="date mono-text">Dec 2024 — Apr 2025</p>
+            <a href="/portfolio/certificates/Cognizant_Internship_Certificate.pdf" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', marginTop: '0.75rem', color: 'var(--accent-color)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, border: '1px solid var(--border-color)', padding: '0.25rem 0.75rem', borderRadius: '4px', backgroundColor: 'var(--bg-card)' }}>
+              🏆 View Certificate
+            </a>
           </div>
           <div className="experience-details">
             <ul>
@@ -32,6 +35,9 @@ const Experience = () => {
             <h3>Software Engineering Intern</h3>
             <p className="company">Edify Techno Solutions</p>
             <p className="date mono-text">May 2024</p>
+            <a href="/portfolio/certificates/Edify_Internship_Certificate.pdf" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', marginTop: '0.75rem', color: 'var(--accent-color)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, border: '1px solid var(--border-color)', padding: '0.25rem 0.75rem', borderRadius: '4px', backgroundColor: 'var(--bg-card)' }}>
+              🏆 View Certificate
+            </a>
           </div>
           <div className="experience-details">
             <ul>
