@@ -88,7 +88,7 @@ const Projects = () => {
                   📄 Read Paper
                 </a>
                 <a href="https://tijer.org/tijer/certificatemanager.php?a_rid=153454" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  📄 Certificate
+                  🏆 Certificate
                 </a>
               </div>
             </div>
@@ -194,7 +194,7 @@ const Projects = () => {
                   📄 Read Paper
                 </a>
                 <a href="https://tijer.org/tijer/certificatemanager.php?a_rid=151048" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  📄 Certificate
+                  🏆 Certificate
                 </a>
               </div>
             </div>
