@@ -37,7 +37,7 @@ const Projects = () => {
 
         <div className="project-card">
           <div className="project-top">
-            <h3 className="project-name">CellFoundry: Foundation Models for Instance Segmentation</h3>
+            <h3 className="project-name">CellFoundry: Foundation Models for Instance Segmentation <span style={{fontSize: '0.8rem', padding: '0.2rem 0.5rem', marginLeft: '0.5rem', borderRadius: '4px', backgroundColor: 'var(--accent-color)', color: '#fff'}}>Ongoing</span></h3>
             <div className="project-desc">
               <p>Working under Prof. Dr. Magda Gregorová to benchmark and fine-tune foundation models (Micro-SAM, CellSAM) for adipocyte instance segmentation in brightfield microscopy.</p>
               <p>Scope includes robust image preprocessing and systematic experiment design in collaboration with IMES Schweinfurt to advance medical imaging analysis.</p>
