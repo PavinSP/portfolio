@@ -13,7 +13,7 @@ const Home = () => {
       <section className="hero">
         <div className="hero-content">
           <h1 className="hero-title">
-            <span className="mono-accent">const</span> developer = <span className="string-accent">"Pavin Sumathi Palanichamy"</span>;
+            <span className="mono-accent">&gt;</span> Pavin_Sumathi_Palanichamy<span className="cursor-blink mono-accent">_</span>
           </h1>
           <h2 className="hero-subtitle">M.Sc. Student in Artificial Intelligence at THWS</h2>
           <p className="hero-description">
