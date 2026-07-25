@@ -84,8 +84,11 @@ const Projects = () => {
           <div className="project-top">
             <div className="project-header-flex">
               <div className="project-links">
+                <a href="https://tijer.org/tijer/papers/TIJERC001274.pdf" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                  📄 Read Paper
+                </a>
                 <a href="https://tijer.org/tijer/certificatemanager.php?a_rid=153454" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  🏆 Publication Certificate
+                  🏆 Certificate
                 </a>
               </div>
             </div>
@@ -187,8 +190,11 @@ const Projects = () => {
           <div className="project-top">
             <div className="project-header-flex">
               <div className="project-links">
+                <a href="https://tijer.org/tijer/papers/TIJERB001114.pdf" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                  📄 Read Paper
+                </a>
                 <a href="https://tijer.org/tijer/certificatemanager.php?a_rid=151048" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  🏆 Publication Certificate
+                  🏆 Certificate
                 </a>
               </div>
             </div>
