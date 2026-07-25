@@ -84,7 +84,7 @@ const Projects = () => {
           <div className="project-top">
             <div className="project-header-flex">
               <div className="project-links">
-                <a href="https://www.tijer.org/viewpaperforall?paper=TIJERC001274" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                <a href="https://tijer.org/TIJER/viewpaperforall?paper=TIJERC001274" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                   📄 Read Paper
                 </a>
               </div>
