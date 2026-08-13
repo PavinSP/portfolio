@@ -67,15 +67,16 @@ const Projects = () => {
                 </a>
               </div>
             </div>
-            <h3 className="project-name">ConStructAI: Information Extraction & Routing</h3>
+            <h3 className="project-name">SSOT: AI-Powered Triage for Construction-Project Communication</h3>
             <div className="project-desc">
-              <p>Built a "single source of truth" prototype for construction communication. Extracted key information from unstructured inputs (emails, chats, notes) and routed it correctly.</p>
-              <p>Designed a human-in-the-loop verification step for trustworthiness, preventing AI hallucinations from reaching production workflows.</p>
+              <p>Built at the ConStructAI Hackathon (CAIRO.THWS) to turn messy construction communication (emails, chats, notes) into a verified, categorized, routable record. Zero-shot classification into 7 project categories plus question-answering-based detail extraction, cross-referenced against live-parsed IFC/BIM building objects.</p>
+              <p>Every extraction lands in an unverified buffer first; a human reviews and approves before anything routes to a target system (Schedule, Cost, QA, Task, Issue Log) or triggers a WhatsApp notification via Twilio.</p>
             </div>
           </div>
           <ul className="project-tech-list mono-text">
-            <li>GenAI</li>
-            <li>Information Extraction</li>
+            <li>HuggingFace Transformers</li>
+            <li>Streamlit</li>
+            <li>IFC/BIM Parsing</li>
             <li>Python</li>
           </ul>
         </div>
