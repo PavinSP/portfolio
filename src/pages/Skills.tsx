@@ -53,7 +53,8 @@ const Skills = () => {
         <div className="skill-category">
           <h3>Certifications & Courses</h3>
           <ul className="skill-list mono-text">
-            <li>Deep Learning for CV (MathWorks, Coursera) - <i>Ongoing</i></li>
+            <li>Computer Vision Specialization (UCB, Coursera) - <i>Ongoing</i></li>
+            <li>RAG and Agentic AI Professional Certificate (IBM) - <i>Ongoing</i></li>
             <li>
               <a href="/portfolio/certificates/Data_Warehouse_Certificate.pdf" target="_blank" rel="noopener noreferrer" style={{color: 'var(--accent-color)', textDecoration: 'none'}}>
                 Data Warehouse Fundamentals (Udemy) 🏆

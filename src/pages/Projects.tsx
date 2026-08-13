@@ -62,7 +62,7 @@ const Projects = () => {
           <div className="project-top">
             <div className="project-header-flex">
               <div className="project-links">
-                <a href="https://github.com/PavinSP/hackathon" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                <a href="https://github.com/PavinSP/SSOT---Single-Source-of-Truth" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                   <GithubIcon size={16} /> GitHub
                 </a>
               </div>
