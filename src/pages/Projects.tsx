@@ -62,6 +62,9 @@ const Projects = () => {
           <div className="project-top">
             <div className="project-header-flex">
               <div className="project-links">
+                <a href="https://titanom-hackathon-8xts.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                  🔗 Live Demo
+                </a>
                 <a href="https://github.com/PavinSP/titanom-hackathon" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                   <GithubIcon size={16} /> GitHub
                 </a>
