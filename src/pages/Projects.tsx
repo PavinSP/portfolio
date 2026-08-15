@@ -62,6 +62,29 @@ const Projects = () => {
           <div className="project-top">
             <div className="project-header-flex">
               <div className="project-links">
+                <a href="https://github.com/PavinSP/titanom-hackathon" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                  <GithubIcon size={16} /> GitHub
+                </a>
+              </div>
+            </div>
+            <h3 className="project-name">Teach-Off: Voice AI That Grades Understanding, Not Keywords <span style={{fontSize: '0.8rem', padding: '0.2rem 0.5rem', marginLeft: '0.5rem', borderRadius: '4px', backgroundColor: 'var(--accent-color)', color: '#fff'}}>Ongoing</span></h3>
+            <div className="project-desc">
+              <p>A voice app where you explain a concept out loud to an AI "Grandma" persona (ElevenLabs Conversational AI) who pushes back on jargon and vague answers instead of teaching it back to you, testing real understanding via the Feynman technique.</p>
+              <p>Built a Claude 4.5 Sonnet grading layer (via an OpenAI-compatible gateway) on an Express backend that judges whether each point was genuinely explained versus just keyword-matched, replacing the original plain-JS keyword grading as the source of truth on the recap screen.</p>
+            </div>
+          </div>
+          <ul className="project-tech-list mono-text">
+            <li>ElevenLabs</li>
+            <li>React</li>
+            <li>Express</li>
+            <li>Claude API</li>
+          </ul>
+        </div>
+
+        <div className="project-card">
+          <div className="project-top">
+            <div className="project-header-flex">
+              <div className="project-links">
                 <a href="https://github.com/PavinSP/SSOT---Single-Source-of-Truth" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                   <GithubIcon size={16} /> GitHub
                 </a>
