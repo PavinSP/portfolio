@@ -3,7 +3,7 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import Splash from './components/Splash';
 import CursorTrail from './components/CursorTrail';
-import NightSky from './components/NightSky';
+import SkyLayer from './components/SkyLayer';
 import PageTransition from './components/PageTransition';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -18,7 +18,7 @@ function App() {
     <ThemeProvider>
       <Router>
         <Splash />
-        <NightSky />
+        <SkyLayer />
         <CursorTrail />
         <div className="app-container">
           <Navbar />
