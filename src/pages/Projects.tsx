@@ -1,10 +1,11 @@
-import { pipelines, projects } from '../data/portfolio';
+import { categoryCovers, pipelines, projects } from '../data/portfolio';
 import LinkRow from '../components/LinkRow';
 import Reveal from '../components/Reveal';
 import SectionHeader from '../components/SectionHeader';
 import { usePointerTilt } from '../hooks/usePointerTilt';
 import TechIcon from '../components/TechIcon';
 import PipelineDiagram from '../components/PipelineDiagram';
+import { resolve } from '../utils/assetUrl';
 
 const Projects = () => {
   usePointerTilt('.project-card', 'tilt');
@@ -28,7 +29,18 @@ const Projects = () => {
 
     {projects.map((group) => (
       <section key={group.category}>
-        <h3 className="category-heading">{group.category}</h3>
+        <div className="category-banner">
+          {categoryCovers[group.category] && (
+            <img
+              className="category-cover"
+              src={resolve(categoryCovers[group.category])}
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          )}
+          <h3 className="category-heading">{group.category}</h3>
+        </div>
         <div className="projects-grid">
           {group.projects.map((project, i) => (
             <Reveal key={project.name} delay={i * 80} stretch>

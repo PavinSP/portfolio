@@ -1185,3 +1185,66 @@ button:hover .gh-mark {
 .cert-link::after { content: '→'; transition: transform 0.2s ease; }
 .cert-link:hover { text-decoration: underline; }
 .cert-link:hover::after { transform: translateX(3px); }
+
+/* ── Project category banners ───────────────────────────────────────────────
+   Abstract cover art behind each category title. Decorative only, so the
+   image is aria-hidden via an empty alt and the heading sits on top with a
+   gradient scrim guaranteeing contrast.                                */
+.category-banner {
+  position: relative;
+  margin: 3rem 0 1.5rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  isolation: isolate;
+}
+.category-banner:first-of-type { margin-top: 1rem; }
+
+.category-cover {
+  display: block;
+  width: 100%;
+  height: clamp(88px, 12vw, 132px);
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+/* Scrim: dark from the left so the title always reads, whatever the art. */
+.category-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(8, 10, 18, 0.9) 0%,
+    rgba(8, 10, 18, 0.66) 42%,
+    rgba(8, 10, 18, 0.28) 100%
+  );
+}
+
+.category-banner .category-heading {
+  position: absolute;
+  left: clamp(1rem, 3vw, 1.75rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  margin: 0;
+  color: #fff;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.5);
+}
+/* The rule after the heading is redundant over an image. */
+.category-banner .category-heading::after { content: none; }
+
+/* Without cover art the banner collapses to the old plain heading. */
+.category-banner:not(:has(.category-cover)) { border-radius: 0; overflow: visible; }
+.category-banner:not(:has(.category-cover))::after { content: none; }
+.category-banner:not(:has(.category-cover)) .category-heading {
+  position: static;
+  transform: none;
+  color: var(--text-primary);
+  text-shadow: none;
+}
+.category-banner:not(:has(.category-cover)) .category-heading::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}

@@ -321,6 +321,15 @@ export const skills: SkillGroup[] = [
   },
 ];
 
+/** Abstract cover art per project category, in public/project-covers/.
+ *  Purely decorative — they suggest the domain without depicting real work. */
+export const categoryCovers: Record<string, string> = {
+  'Computer Vision': 'project-covers/computer-vision.jpg',
+  'Generative AI': 'project-covers/generative-ai.jpg',
+  'Natural Language Processing': 'project-covers/nlp.jpg',
+  'Machine Learning': 'project-covers/machine-learning.jpg',
+};
+
 export const certifications: Certification[] = [
   {
     name: 'Computer Vision Specialization',
