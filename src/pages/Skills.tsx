@@ -3,6 +3,7 @@ import { resolve } from '../utils/assetUrl';
 import { LinkIcon } from '../components/Icons';
 import Reveal from '../components/Reveal';
 import SectionHeader from '../components/SectionHeader';
+import SkillRow from '../components/SkillRow';
 
 const Skills = () => (
   <div className="page-wrapper">
@@ -20,7 +21,7 @@ const Skills = () => (
             <ul className="skill-list">
               {group.skills.map((skill) =>
                 typeof skill === 'string' ? (
-                  <li key={skill}>{skill}</li>
+                  <SkillRow key={skill} text={skill} />
                 ) : (
                   <li key={skill.url}>
                     <a

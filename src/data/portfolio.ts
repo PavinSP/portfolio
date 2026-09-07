@@ -331,3 +331,30 @@ export const skills: SkillGroup[] = [
     ],
   },
 ];
+
+/** Pipeline diagrams for flagship projects, shown in the Projects section.
+ *  Stage detail comes from the project descriptions above. */
+export const pipelines = [
+  {
+    title: 'Driver drowsiness detection — inference pipeline',
+    stages: [
+      { label: 'Camera frame', detail: 'Live video captured frame by frame' },
+      { label: 'MediaPipe', detail: 'Facial landmarks locate the eye regions' },
+      { label: 'MobileNetV3', detail: 'Fine-tuned eye-state classifier, 98.2% val accuracy' },
+      { label: 'PERCLOS', detail: 'Percentage of eyelid closure over a rolling window' },
+      { label: 'Alert', detail: 'Drowsiness flagged when the threshold is crossed' },
+    ],
+    outcome: '5.4 ms single-frame CPU inference (~185 FPS), viable for on-device edge deployment.',
+  },
+  {
+    title: 'Teach It To Grandma — understanding-graded voice loop',
+    stages: [
+      { label: 'You explain', detail: 'Spoken explanation of a concept you chose' },
+      { label: 'ElevenLabs', detail: 'Conversational agent pushes back on jargon' },
+      { label: 'Transcript', detail: 'Turn-by-turn record of what was actually said' },
+      { label: 'Claude grading', detail: 'Judges whether each point was genuinely explained' },
+      { label: 'Recap', detail: 'Per-point verdicts replace keyword matching' },
+    ],
+    outcome: 'Won the ElevenLabs Sonderpreis for Best Project Built With ElevenLabs.',
+  },
+];

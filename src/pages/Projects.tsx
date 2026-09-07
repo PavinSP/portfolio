@@ -1,8 +1,10 @@
-import { projects } from '../data/portfolio';
+import { pipelines, projects } from '../data/portfolio';
 import LinkRow from '../components/LinkRow';
 import Reveal from '../components/Reveal';
 import SectionHeader from '../components/SectionHeader';
 import { usePointerTilt } from '../hooks/usePointerTilt';
+import TechIcon from '../components/TechIcon';
+import PipelineDiagram from '../components/PipelineDiagram';
 
 const Projects = () => {
   usePointerTilt('.project-card', 'tilt');
@@ -14,6 +16,15 @@ const Projects = () => {
       title="Featured Projects"
       subtitle="Computer vision, generative AI, NLP and machine learning work from research, hackathons and publications."
     />
+
+    {pipelines.map((pipeline) => (
+      <PipelineDiagram
+        key={pipeline.title}
+        title={pipeline.title}
+        stages={pipeline.stages}
+        outcome={pipeline.outcome}
+      />
+    ))}
 
     {projects.map((group) => (
       <section key={group.category}>
@@ -34,7 +45,10 @@ const Projects = () => {
                 </div>
                 <ul className="pill-list">
                   {project.tech.map((tech) => (
-                    <li key={tech}>{tech}</li>
+                    <li key={tech}>
+                      <TechIcon tech={tech} />
+                      {tech}
+                    </li>
                   ))}
                 </ul>
               </article>
