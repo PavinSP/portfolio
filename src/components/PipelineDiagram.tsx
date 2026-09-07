@@ -9,6 +9,8 @@ type Props = {
   title: string;
   stages: Stage[];
   outcome?: string;
+  /** Only set where the project actually has a working demo. */
+  demoUrl?: string;
 };
 
 /**
@@ -16,12 +18,27 @@ type Props = {
  * fades up in turn and the connector between them extends. Explains how a
  * project actually works rather than decorating the page.
  */
-const PipelineDiagram = ({ title, stages, outcome }: Props) => {
+const PipelineDiagram = ({ title, stages, outcome, demoUrl }: Props) => {
   const { ref, shown } = useReveal();
 
   return (
     <figure ref={ref} className={`pipeline ${shown ? 'is-shown' : ''}`}>
-      <figcaption className="pipeline-title">{title}</figcaption>
+      <div className="pipeline-head">
+        <figcaption className="pipeline-title">{title}</figcaption>
+        {demoUrl && (
+          <a
+            className="link-demo pipeline-demo"
+            href={demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            Try the live demo
+          </a>
+        )}
+      </div>
 
       <ol className="pipeline-track">
         {stages.map((stage, i) => (

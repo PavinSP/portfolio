@@ -24,6 +24,7 @@ const Projects = () => {
         title={pipeline.title}
         stages={pipeline.stages}
         outcome={pipeline.outcome}
+        demoUrl={'demoUrl' in pipeline ? pipeline.demoUrl : undefined}
       />
     ))}
 

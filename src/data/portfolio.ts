@@ -384,17 +384,6 @@ export const certifications: Certification[] = [
  *  Stage detail comes from the project descriptions above. */
 export const pipelines = [
   {
-    title: 'Driver drowsiness detection — inference pipeline',
-    stages: [
-      { label: 'Camera frame', detail: 'Live video captured frame by frame' },
-      { label: 'MediaPipe', detail: 'Facial landmarks locate the eye regions' },
-      { label: 'MobileNetV3', detail: 'Fine-tuned eye-state classifier, 98.2% val accuracy' },
-      { label: 'PERCLOS', detail: 'Percentage of eyelid closure over a rolling window' },
-      { label: 'Alert', detail: 'Drowsiness flagged when the threshold is crossed' },
-    ],
-    outcome: '5.4 ms single-frame CPU inference (~185 FPS), viable for on-device edge deployment.',
-  },
-  {
     title: 'Teach It To Grandma — understanding-graded voice loop',
     stages: [
       { label: 'You explain', detail: 'Spoken explanation of a concept you chose' },
@@ -404,5 +393,17 @@ export const pipelines = [
       { label: 'Recap', detail: 'Per-point verdicts replace keyword matching' },
     ],
     outcome: 'Won the ElevenLabs Sonderpreis for Best Project Built With ElevenLabs.',
+    demoUrl: 'https://titanom-hackathon-8xts.vercel.app/',
+  },
+  {
+    title: 'Driver drowsiness detection — inference pipeline',
+    stages: [
+      { label: 'Camera frame', detail: 'Live video captured frame by frame' },
+      { label: 'MediaPipe', detail: 'Facial landmarks locate the eye regions' },
+      { label: 'MobileNetV3', detail: 'Fine-tuned eye-state classifier, 98.2% val accuracy' },
+      { label: 'PERCLOS', detail: 'Percentage of eyelid closure over a rolling window' },
+      { label: 'Alert', detail: 'Drowsiness flagged when the threshold is crossed' },
+    ],
+    outcome: '5.4 ms single-frame CPU inference (~185 FPS), viable for on-device edge deployment.',
   },
 ];

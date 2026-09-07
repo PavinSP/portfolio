@@ -1061,13 +1061,33 @@ button:hover .gh-mark {
   box-shadow: var(--card-shadow);
 }
 
+/* Title on the left, demo button on the right; wraps on narrow cards. */
+.pipeline-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
 .pipeline-title {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent-color);
-  margin-bottom: 1.5rem;
+}
+
+/* The button styling lives with .link-demo; it just needs the layout bits
+   that .link-row would otherwise have supplied. */
+.pipeline-demo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+  text-decoration: none;
+  font-size: 0.88rem;
 }
 
 .pipeline-track {
@@ -1308,7 +1328,8 @@ button:hover .gh-mark {
 /* ── Live demo link ─────────────────────────────────────────────────────────
    A working demo is the strongest thing on a project card, so it reads as a
    filled button rather than sitting level with the source link.        */
-.link-row .link-demo {
+.link-row .link-demo,
+.pipeline-demo {
   padding: 0.4rem 0.85rem;
   border-radius: 999px;
   background: var(--accent-color);
@@ -1320,9 +1341,12 @@ button:hover .gh-mark {
   transition: var(--transition);
 }
 
-:root[data-theme='light'] .link-row .link-demo,
-:root:not([data-theme='dark']) .link-row .link-demo { color: #fff; }
-.link-row .link-demo:hover {
+:root[data-theme='light'] :is(.link-row .link-demo, .pipeline-demo),
+:root:not([data-theme='dark']) :is(.link-row .link-demo, .pipeline-demo) {
+  color: #fff;
+}
+.link-row .link-demo:hover,
+.pipeline-demo:hover {
   text-decoration: none;
   transform: translateY(-1px);
   filter: brightness(1.08);
@@ -1351,6 +1375,8 @@ button:hover .gh-mark {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .link-row .link-demo { transition: none; }
-  .link-row .link-demo:hover { transform: none; }
+  .link-row .link-demo,
+.pipeline-demo { transition: none; }
+  .link-row .link-demo:hover,
+.pipeline-demo:hover { transform: none; }
 }
