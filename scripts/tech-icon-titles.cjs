@@ -14,6 +14,7 @@ exports.TECH_ICON_TITLES = {
   LangChain: 'LangChain',
   ElevenLabs: 'ElevenLabs',
   'Claude API': 'Anthropic',
+  Gemini: 'Google Gemini',
 
   // Classical ML
   'Scikit-learn': 'scikit-learn',

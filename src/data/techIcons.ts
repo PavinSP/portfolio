@@ -22,6 +22,7 @@ export const TECH_ICON_TITLES: Record<string, string> = {
   LangChain: 'LangChain',
   ElevenLabs: 'ElevenLabs',
   'Claude API': 'Anthropic',
+  Gemini: 'Google Gemini',
 
   // Classical ML
   'Scikit-learn': 'scikit-learn',

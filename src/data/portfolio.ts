@@ -188,9 +188,9 @@ export const projects: ProjectCategory[] = [
         badge: '🏆 ElevenLabs Sonderpreis',
         description: [
           'A voice app where you explain a concept out loud to an AI "Grandma" persona (ElevenLabs Conversational AI) who pushes back on jargon and vague answers instead of teaching it back to you, testing real understanding via the Feynman technique.',
-          'Built a Claude 4.5 Sonnet grading layer (via an OpenAI-compatible gateway) on an Express backend that judges whether each point was genuinely explained versus just keyword-matched, replacing the original plain-JS keyword grading as the source of truth on the recap screen. Won the ElevenLabs Sonderpreis for Best Project Built With ElevenLabs, awarded 3 months of ElevenLabs Scale.',
+          'Built an LLM grading layer (via an OpenAI-compatible gateway) on an Express backend that judges whether each point was genuinely explained versus just keyword-matched, replacing the original plain-JS keyword grading as the source of truth on the recap screen. Model choice came from a measured comparison across four candidates: gemini-3.1-flash-lite correctly scored a jargon-stuffed answer 1/4 and a genuine explanation 4/4 in ~1.7s, while stronger models rubber-stamped the jargon. Claude 4.5 Sonnet handles the judgement-heavy jury and closed-world recall paths. Won the ElevenLabs Sonderpreis for Best Project Built With ElevenLabs, awarded 3 months of ElevenLabs Scale.',
         ],
-        tech: ['ElevenLabs', 'React', 'Express', 'Claude API'],
+        tech: ['ElevenLabs', 'React', 'Express', 'Gemini', 'Claude API'],
         links: [
           { label: 'Live Demo', url: 'https://titanom-hackathon-8xts.vercel.app/', icon: 'external' },
           { label: 'GitHub', url: 'https://github.com/PavinSP/titanom-hackathon', icon: 'github' },
@@ -393,7 +393,7 @@ export const pipelines = [
       { label: 'You explain', detail: 'Spoken explanation of a concept you chose' },
       { label: 'ElevenLabs', detail: 'Conversational agent pushes back on jargon' },
       { label: 'Transcript', detail: 'Turn-by-turn record of what was actually said' },
-      { label: 'Claude grading', detail: 'Judges whether each point was genuinely explained' },
+      { label: 'LLM grading', detail: 'gemini-3.1-flash-lite judges whether each point was genuinely explained' },
       { label: 'Recap', detail: 'Per-point verdicts replace keyword matching' },
     ],
     outcome: 'Won the ElevenLabs Sonderpreis for Best Project Built With ElevenLabs.',
