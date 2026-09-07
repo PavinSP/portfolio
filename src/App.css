@@ -314,6 +314,41 @@
   color: var(--accent-color);
 }
 
+/* GitHub Contribution Graph */
+.contrib-section {
+  text-align: center;
+  padding: 0 0 2rem;
+}
+
+.contrib-tag {
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.contrib-link {
+  display: block;
+  /* The SVG is intrinsically 1280px wide; cap against the viewport (minus the
+     container's 2rem side padding) so it never widens its ancestors. */
+  max-width: calc(100vw - 4rem);
+  margin: 0 auto;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.contrib-link:hover {
+  border-color: var(--text-secondary);
+}
+
+.contrib-graph {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
 /* Contact Section & Footer */
 .contact-section {
   text-align: center;

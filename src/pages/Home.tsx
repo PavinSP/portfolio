@@ -32,6 +32,23 @@ const Home = () => {
         </div>
       </section>
       
+      <section className="section contrib-section">
+        <span className="mono-text contrib-tag">Contribution activity</span>
+        <a
+          href="https://github.com/PavinSP"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="contrib-link"
+        >
+          <img
+            src="https://raw.githubusercontent.com/PavinSP/PavinSP/main/profile-3d-contrib/profile-night-green.svg"
+            alt="Isometric 3D graph of my GitHub contributions over the past year"
+            className="contrib-graph"
+            loading="lazy"
+          />
+        </a>
+      </section>
+
       <section className="section contact-section" style={{ paddingTop: '2rem' }}>
         <div className="contact-content">
           <span className="mono-text contact-tag">Want to collaborate?</span>
