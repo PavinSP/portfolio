@@ -35,7 +35,7 @@ export const education: Degree[] = [
   {
     degree: 'Master of Science in Artificial Intelligence',
     institution: 'THWS (Technical University of Applied Sciences Würzburg-Schweinfurt)',
-    location: 'Germany',
+    location: 'Würzburg, Germany · Mar 2026 — Present',
     intro:
       'Currently enrolled in the research-oriented Master of Artificial Intelligence (MAI) program, focusing on the deep mathematical and architectural foundations of intelligent systems.',
     modulesHeading: 'Key First-Semester Modules (CAIRO):',
@@ -85,7 +85,7 @@ export const education: Degree[] = [
   {
     degree: 'Bachelor of Technology in AI & Data Science',
     institution: 'Panimalar Engineering College (Anna University)',
-    location: 'Chennai, India',
+    location: 'Chennai, India · Sep 2021 — May 2025',
     intro:
       'Graduated with a strong academic record, achieving a CGPA of 8.51 (equivalent to a 1.8 on the German grading scale).',
     modulesHeading: 'Core AI & Data Science Curriculum (Regulation 2021):',
@@ -135,10 +135,10 @@ export const experience: Job[] = [
       { label: 'View Offer Letter', url: 'certificates/Cognizant_Offer_Letter.pdf', icon: 'award' },
     ],
     bullets: [
-      'Worked within an agile software development team, learning how different roles collaborate to ship reliable enterprise systems.',
-      'Built automated data pipelines in Python and SQL on Microsoft Azure.',
-      'Integrated REST APIs to ingest, orchestrate, and process structured and semi-structured data from disparate sources.',
-      'Automated data validation and quality checks, benchmarking pipeline reliability across transformation workflows to ensure zero data loss.',
+      'Ran systematic data-quality checks — schema validation, record-count verification, test-case validation — at each pipeline stage, to catch silent data loss before it reached downstream tables rather than discovering it at the far end.',
+      'Built ETL pipelines on Databricks and Spark parsing deeply nested JSON, using explicit schemas and custom UDFs to unnest arrays.',
+      'Automated pipelines in Python and SQL on Azure, integrating REST APIs over structured and semi-structured JSON and XML data.',
+      'Optimised PostgreSQL queries and worked across Azure and AWS in a distributed delivery team.',
       'Documented technical processes clearly and presented results to both technical and non-technical stakeholders, bridging the gap between engineering and business.',
     ],
   },
@@ -150,7 +150,7 @@ export const experience: Job[] = [
       { label: 'View Certificate', url: 'certificates/Edify_Internship_Certificate.pdf', icon: 'award' },
     ],
     bullets: [
-      'Contributed to full-stack application development, seamlessly integrating backend business logic with frontend interactive applications using React.',
+      'Full-stack development with Flask, Django and React, integrating backend and frontend through robust API communication with input validation and clean error handling.',
       'Assisted with rigorous testing and logging to identify failure points early, ensuring stable and reproducible behaviour in production environments.',
       'Maintained comprehensive technical documentation to support knowledge transfer and onboarding within the development team.',
     ],
@@ -295,26 +295,29 @@ export const skills: SkillGroup[] = [
     title: 'NLP, GenAI & Classical ML',
     skills: [
       'HuggingFace Transformers, DistilBERT',
-      'OpenAI / Azure OpenAI APIs, LangChain',
-      'Prompt Engineering, RAG Pipelines',
-      'Natural Language Processing, Information Extraction',
-      'Scikit-learn, CatBoost, XGBoost',
+      'OpenAI / Azure OpenAI APIs, LangChain, LangGraph',
+      'Model Context Protocol (MCP), Agent Frameworks (CrewAI, AutoGen)',
+      'LLM-as-Judge Evaluation, Prompt Engineering, RAG Pipelines',
+      'Vector Databases (ChromaDB, FAISS)',
+      'Scikit-learn, CatBoost, XGBoost, SHAP',
     ],
   },
   {
     title: 'Programming & Web',
     skills: [
-      'Python, SQL, Java, Bash',
-      'JavaScript, React, Flask',
+      'Python, SQL, TypeScript, Java, C++, Bash',
+      'JavaScript, React, Express, Flask, Django',
       'n8n (Workflow Automation)',
-      'REST APIs, JSON',
+      'REST APIs, JSON, XML',
     ],
   },
   {
     title: 'Cloud, DevOps & Tools',
     skills: [
-      'Docker, Git & GitHub, CI/CD Concepts',
-      'Microsoft Azure (VMs, Synapse)',
+      'Docker, Git & GitHub, GitHub Actions',
+      'Microsoft Azure (VMs, Synapse, Data Factory), AWS',
+      'Databricks, Apache Spark, ETL/ELT Pipelines',
+      'PostgreSQL, Redis',
       'Linux (CLI)',
       'Streamlit, Jupyter Notebook',
     ],
@@ -344,11 +347,42 @@ export const certifications: Certification[] = [
     status: 'ongoing',
   },
   {
+    name: 'AI for Medical Diagnosis',
+    issuer: 'DeepLearning.AI · Coursera',
+    provider: 'DeepLearning.AI',
+    status: 'ongoing',
+  },
+  {
     name: 'Develop Generative AI Applications: Get Started',
     issuer: 'IBM · Coursera',
     provider: 'IBM',
     status: 'completed',
     url: 'certificates/IBM_GenAI_Applications_Certificate.pdf',
+  },
+  {
+    name: 'Build RAG Applications: Get Started',
+    issuer: 'IBM · Coursera',
+    provider: 'IBM',
+    status: 'completed',
+  },
+  {
+    name: 'Introduction to Model Context Protocol',
+    issuer: 'Anthropic',
+    provider: 'Anthropic',
+    status: 'completed',
+  },
+  {
+    name: 'Model Context Protocol: Advanced Topics',
+    issuer: 'Anthropic',
+    provider: 'Anthropic',
+    status: 'completed',
+  },
+  {
+    name: 'TUM.ai Munich Hackathon 2026',
+    issuer: 'TUM.ai × EHL · Team Bayern CodeWerk',
+    provider: 'TUM.ai',
+    status: 'completed',
+    url: 'certificates/TUMai_Munich_Hackathon_Certificate.pdf',
   },
   {
     name: 'Data Warehouse Fundamentals',

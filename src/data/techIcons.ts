@@ -44,6 +44,7 @@ export const TECH_ICON_TITLES: Record<string, string> = {
   // NASSCOM have no entry, so those cards keep the generic mark).
   Coursera: 'Coursera',
   Udemy: 'Udemy',
+  Anthropic: 'Anthropic',
 
   // Infra / tools
   Docker: 'Docker',
@@ -84,4 +85,6 @@ export const PROVIDER_IMAGES: Record<string, string> = {
  *  typographic lettermark rather than a copied or invented logo. */
 export const PROVIDER_LETTERMARKS: Record<string, { text: string; color: string }> = {
   NASSCOM: { text: 'NAS', color: '#e0708a' },
+  'DeepLearning.AI': { text: 'DL', color: '#6ba8e8' },
+  'TUM.ai': { text: 'TUM', color: '#a78bfa' },
 };

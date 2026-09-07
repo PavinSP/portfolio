@@ -47,7 +47,7 @@ export type Certification = {
   name: string;
   issuer: string;
   /** Platform whose logo to show, when one exists in the icon set. */
-  provider?: 'Coursera' | 'Udemy' | 'IBM' | 'NASSCOM';
+  provider?: 'Coursera' | 'Udemy' | 'IBM' | 'NASSCOM' | 'Anthropic' | 'DeepLearning.AI' | 'TUM.ai';
   /** Ongoing courses have no certificate to link yet. */
   status?: 'ongoing' | 'completed';
   url?: string;

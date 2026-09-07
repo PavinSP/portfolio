@@ -36,6 +36,7 @@ exports.TECH_ICON_TITLES = {
   // NASSCOM have no entry, so those cards keep the generic mark).
   Coursera: 'Coursera',
   Udemy: 'Udemy',
+  Anthropic: 'Anthropic',
 
   // Infra / tools
   Docker: 'Docker',
