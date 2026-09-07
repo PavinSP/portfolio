@@ -1,37 +1,18 @@
 import { useEffect, useState } from 'react';
 
-const KEY = 'pavin-splash-shown';
 /** Keep in sync with the .splash animation timings in App.css. */
-const DURATION = 1600;
-
-/** Has the intro already played in this browser session? */
-const alreadyShown = () => {
-  try {
-    return window.sessionStorage.getItem(KEY) === '1';
-  } catch {
-    // Storage blocked (private window, site data off): treat as shown so a
-    // visitor is never stuck behind an intro that cannot record itself.
-    return true;
-  }
-};
+const DURATION = 3300;
 
 const prefersReducedMotion = () =>
   window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
 
 const Splash = () => {
-  // Decide once, before first paint, so the intro never flashes when skipped.
-  const [visible, setVisible] = useState(
-    () => !alreadyShown() && !prefersReducedMotion(),
-  );
+  // Plays on every page load. Decided before first paint so it never flashes
+  // when skipped for reduced motion.
+  const [visible, setVisible] = useState(() => !prefersReducedMotion());
 
   useEffect(() => {
     if (!visible) return;
-
-    try {
-      window.sessionStorage.setItem(KEY, '1');
-    } catch {
-      // Non-fatal: the intro just may replay.
-    }
 
     // Don't leave the page unusable if the animation event never fires.
     const timer = window.setTimeout(() => setVisible(false), DURATION + 400);

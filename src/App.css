@@ -435,9 +435,9 @@ footer {
 }
 
 /* ── Intro splash ───────────────────────────────────────────────────────────
-   Adapted from ashutosh1919/masterPortfolio's grow/shrink splash, shortened
-   to ~1.6s and reduced to a single element so it cannot trap the page.
-   Timings here must stay in sync with DURATION in Splash.tsx.            */
+   Adapted from ashutosh1919/masterPortfolio's grow/shrink splash, reduced to
+   a single element so it cannot trap the page. Runs ~3.3s and replays on
+   every page load. Timings must stay in sync with DURATION in Splash.tsx. */
 .splash {
   position: fixed;
   inset: 0;
@@ -445,7 +445,7 @@ footer {
   display: grid;
   place-items: center;
   background: var(--bg-primary);
-  animation: splash-out 0.45s ease 1.15s forwards;
+  animation: splash-out 0.7s ease 2.6s forwards;
 }
 
 .splash-mark {
@@ -458,7 +458,7 @@ footer {
   stroke: var(--accent-color);
   stroke-dasharray: 420;
   stroke-dashoffset: 420;
-  animation: splash-draw 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation: splash-draw 1.9s cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
 .splash-initials {
@@ -468,7 +468,7 @@ footer {
   font-weight: 800;
   letter-spacing: 0.04em;
   opacity: 0;
-  animation: splash-fade 0.5s ease 0.55s forwards;
+  animation: splash-fade 0.9s ease 1.25s forwards;
 }
 
 @keyframes splash-draw {
