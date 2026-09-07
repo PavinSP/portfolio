@@ -34,7 +34,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="nav-content">
         <a href="#" className="logo" onClick={jump('home')}>
-          Pavin Palanichamy
+          Pavin Sumathi Palanichamy
         </a>
 
         <ul className={`nav-links ${open ? 'open' : ''}`}>

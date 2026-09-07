@@ -47,10 +47,14 @@
 .logo {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.1rem;
+  /* The full name is long, so it scales with the bar and must never wrap —
+     a wrapped logo doubled the navbar's height. */
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
   color: var(--text-primary);
   text-decoration: none;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .logo:hover { color: var(--accent-color); }
 
