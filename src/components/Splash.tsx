@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
+import { greeting } from '../data/portfolio';
 
 /** Keep in sync with the .splash animation timings in App.css. */
-const DURATION = 3300;
+const DURATION = 4200;
 
 const prefersReducedMotion = () =>
   window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
@@ -36,21 +37,36 @@ const Splash = () => {
         if (e.currentTarget === e.target) setVisible(false);
       }}
     >
-      <svg className="splash-mark" viewBox="0 0 120 120" aria-hidden="true">
-        <rect
-          className="splash-badge"
-          x="8"
-          y="8"
-          width="104"
-          height="104"
-          rx="26"
-          fill="none"
-          strokeWidth="3"
-        />
-        <text className="splash-initials" x="60" y="60" textAnchor="middle" dominantBaseline="central">
-          PSP
-        </text>
-      </svg>
+      <div className="splash-inner">
+        <svg className="splash-mark" viewBox="0 0 200 200" aria-hidden="true">
+          {/* Outer and inner hexagons, drawn as offset outlines. */}
+          <polygon
+            className="splash-hex splash-hex-outer"
+            points="100,14 174,57 174,143 100,186 26,143 26,57"
+            fill="none"
+            strokeWidth="3"
+            strokeLinejoin="round"
+          />
+          <polygon
+            className="splash-hex splash-hex-inner"
+            points="106,22 178,64 178,148 106,190 34,148 34,64"
+            fill="none"
+            strokeWidth="2.5"
+            strokeLinejoin="round"
+          />
+          <text
+            className="splash-initials"
+            x="100"
+            y="102"
+            textAnchor="middle"
+            dominantBaseline="central"
+          >
+            PSP
+          </text>
+        </svg>
+
+        <p className="splash-signature">{greeting.name}</p>
+      </div>
     </div>
   );
 };
