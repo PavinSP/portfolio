@@ -489,3 +489,19 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   .splash { display: none; }
 }
+
+/* ── Cursor trail ───────────────────────────────────────────────────────────
+   Full-viewport canvas behind the content. It must never intercept clicks,
+   and it sits above the page background but below everything readable.   */
+.cursor-trail {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Content needs its own stacking context so it paints above the canvas. */
+.app-container {
+  position: relative;
+  z-index: 1;
+}

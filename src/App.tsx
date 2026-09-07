@@ -2,6 +2,7 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import Splash from './components/Splash';
+import CursorTrail from './components/CursorTrail';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Education from './pages/Education';
@@ -15,6 +16,7 @@ function App() {
     <ThemeProvider>
       <Router>
         <Splash />
+        <CursorTrail />
         <div className="app-container">
           <Navbar />
           <main className="container page-content">
