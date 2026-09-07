@@ -433,3 +433,59 @@ footer {
   .contrib { grid-template-columns: minmax(0, 1fr); }
   .contrib-years { flex-direction: row; flex-wrap: wrap; }
 }
+
+/* ── Intro splash ───────────────────────────────────────────────────────────
+   Adapted from ashutosh1919/masterPortfolio's grow/shrink splash, shortened
+   to ~1.6s and reduced to a single element so it cannot trap the page.
+   Timings here must stay in sync with DURATION in Splash.tsx.            */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background: var(--bg-primary);
+  animation: splash-out 0.45s ease 1.15s forwards;
+}
+
+.splash-mark {
+  width: clamp(96px, 22vw, 148px);
+  height: auto;
+  overflow: visible;
+}
+
+.splash-badge {
+  stroke: var(--accent-color);
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: splash-draw 0.9s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.splash-initials {
+  fill: var(--text-primary);
+  font-family: var(--font-heading);
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  animation: splash-fade 0.5s ease 0.55s forwards;
+}
+
+@keyframes splash-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes splash-fade {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes splash-out {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* The component skips itself when reduced motion is requested; this is a
+   belt-and-braces guard so the overlay can never persist. */
+@media (prefers-reduced-motion: reduce) {
+  .splash { display: none; }
+}
