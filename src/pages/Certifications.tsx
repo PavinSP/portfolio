@@ -2,7 +2,7 @@ import { certifications } from '../data/portfolio';
 import { resolve } from '../utils/assetUrl';
 import Reveal from '../components/Reveal';
 import TechIcon from '../components/TechIcon';
-import { findIcon } from '../data/techIcons';
+import { findIcon, PROVIDER_LETTERMARKS } from '../data/techIcons';
 import SectionHeader from '../components/SectionHeader';
 
 const Certifications = () => (
@@ -19,6 +19,7 @@ const Certifications = () => (
         // Only Coursera and Udemy have marks in the icon set; the rest keep
         // the generic status glyph.
         const hasLogo = cert.provider ? Boolean(findIcon(cert.provider)) : false;
+        const lettermark = cert.provider ? PROVIDER_LETTERMARKS[cert.provider] : undefined;
 
         return (
           <Reveal key={cert.name} delay={i * 70} stretch>
@@ -26,6 +27,10 @@ const Certifications = () => (
               <span className="cert-mark" aria-hidden="true">
                 {hasLogo && cert.provider ? (
                   <TechIcon tech={cert.provider} size={20} />
+                ) : lettermark ? (
+                  <span className="cert-lettermark" style={{ color: lettermark.color }}>
+                    {lettermark.text}
+                  </span>
                 ) : ongoing ? (
                   '◔'
                 ) : (
