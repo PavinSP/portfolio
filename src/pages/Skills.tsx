@@ -1,4 +1,5 @@
 import { skills } from '../data/portfolio';
+import ContributionGraph from '../components/ContributionGraph';
 import { resolve } from '../utils/assetUrl';
 import { LinkIcon } from '../components/Icons';
 import Reveal from '../components/Reveal';
@@ -11,6 +12,15 @@ const Skills = () => (
       title="Technical Skills & Certifications"
       subtitle="Tools and frameworks I use across the AI, data and infrastructure stack."
     />
+
+    <Reveal>
+      <section style={{ marginBottom: '3rem' }}>
+        <h3 className="category-heading" style={{ marginTop: 0 }}>
+          GitHub Activity
+        </h3>
+        <ContributionGraph username="PavinSP" since={2022} />
+      </section>
+    </Reveal>
 
     <div className="skills-grid">
       {skills.map((group, i) => (

@@ -6,11 +6,14 @@
 
 .page-content {
   flex-grow: 1;
+  /* Flex items default to min-width:auto, which lets a wide child (the
+     contribution calendar) stretch the page. Pin it so children scroll. */
+  min-width: 0;
   padding-top: 7rem;
   padding-bottom: 3rem;
 }
 
-.page-wrapper { max-width: 1080px; margin: 0 auto; }
+.page-wrapper { max-width: 1080px; margin: 0 auto; min-width: 0; }
 
 /* ── Navbar ─────────────────────────────────────────────────────────────── */
 .navbar {
@@ -373,4 +376,58 @@ footer {
   .projects-grid, .skills-grid { grid-template-columns: 1fr; }
   .contact-section { padding: 2.25rem 1.25rem; }
   .card { padding: 1.35rem; }
+}
+
+/* ── Contribution graph ─────────────────────────────────────────────────── */
+.contrib {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: start;
+}
+
+.contrib-card {
+  padding: 1.5rem;
+  min-width: 0;
+}
+.contrib-card:hover { transform: none; border-color: var(--border-color); }
+
+/* The calendar renders its own text; pull it onto the site's palette. */
+.contrib-card text { fill: var(--text-secondary) !important; }
+.contrib-card .react-activity-calendar__count,
+.contrib-card .react-activity-calendar__legend-colors { color: var(--text-secondary); }
+
+.contrib-years {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.contrib-year {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.contrib-year:hover { color: var(--accent-color); border-color: var(--accent-color); }
+.contrib-year.is-active {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* The calendar renders a fixed-width SVG. The grid's minmax(0, 1fr) lets this
+   card be narrower than that SVG, and the library's own scroll container then
+   scrolls it horizontally instead of widening the page. */
+
+@media (max-width: 900px) {
+  .contrib { grid-template-columns: minmax(0, 1fr); }
+  .contrib-years { flex-direction: row; flex-wrap: wrap; }
 }
