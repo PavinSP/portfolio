@@ -379,6 +379,8 @@ footer {
 }
 
 /* ── Contribution graph ─────────────────────────────────────────────────── */
+.home-contrib { padding: 1rem 0 2.5rem; }
+
 .contrib {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;

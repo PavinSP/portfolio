@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Mail } from 'lucide-react';
 import { contact, greeting, socials } from '../data/portfolio';
 import { GithubIcon, LinkedInIcon } from '../components/Icons';
+import ContributionGraph from '../components/ContributionGraph';
 import Reveal from '../components/Reveal';
 
 const Home = () => {
@@ -40,6 +41,15 @@ const Home = () => {
       </Reveal>
 
       <Reveal delay={100}>
+        <section className="section home-contrib">
+          <h3 className="category-heading" style={{ marginTop: 0 }}>
+            GitHub Activity
+          </h3>
+          <ContributionGraph username="PavinSP" since={2022} />
+        </section>
+      </Reveal>
+
+      <Reveal delay={150}>
         <section className="contact-section">
           <span className="contact-tag">{contact.tag}</span>
           <h2 className="contact-title">{contact.heading}</h2>
