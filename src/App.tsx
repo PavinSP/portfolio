@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Splash from './components/Splash';
 import CursorTrail from './components/CursorTrail';
 import NightSky from './components/NightSky';
+import PageTransition from './components/PageTransition';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Education from './pages/Education';
@@ -22,13 +23,15 @@ function App() {
         <div className="app-container">
           <Navbar />
           <main className="container page-content">
-            <Routes>
+            <PageTransition>
+              <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/education" element={<Education />} />
               <Route path="/experience" element={<Experience />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/skills" element={<Skills />} />
-            </Routes>
+              </Routes>
+            </PageTransition>
           </main>
           <Footer />
         </div>

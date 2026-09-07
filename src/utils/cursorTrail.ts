@@ -13,8 +13,8 @@ export type TrailOptions = {
   color: string;
 };
 
-const TRAILS = 20;
-const NODES_PER_TRAIL = 34;
+const TRAILS = 12;
+const NODES_PER_TRAIL = 24;
 const FRICTION = 0.48;
 const DAMPENING = 0.22;
 const TENSION = 0.98;

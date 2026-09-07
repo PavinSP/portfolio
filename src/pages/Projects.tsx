@@ -2,8 +2,12 @@ import { projects } from '../data/portfolio';
 import LinkRow from '../components/LinkRow';
 import Reveal from '../components/Reveal';
 import SectionHeader from '../components/SectionHeader';
+import { usePointerTilt } from '../hooks/usePointerTilt';
 
-const Projects = () => (
+const Projects = () => {
+  usePointerTilt('.project-card', 'tilt');
+
+  return (
   <div className="page-wrapper">
     <SectionHeader
       eyebrow="03. What I've built"
@@ -39,7 +43,8 @@ const Projects = () => (
         </div>
       </section>
     ))}
-  </div>
-);
+    </div>
+  );
+};
 
 export default Projects;

@@ -4,10 +4,22 @@ import { contact, greeting, socials } from '../data/portfolio';
 import { GithubIcon, LinkedInIcon } from '../components/Icons';
 import ContributionGraph from '../components/ContributionGraph';
 import Reveal from '../components/Reveal';
+import Typed from '../components/Typed';
+import StatsRow from '../components/StatsRow';
+import { usePointerTilt } from '../hooks/usePointerTilt';
+
+const ROLES = [
+  'M.Sc. Student in Artificial Intelligence at THWS',
+  'Computer Vision & Deep Learning',
+  'Generative AI & NLP Engineering',
+  'Cloud, Data & Infrastructure',
+];
 
 const Home = () => {
   const github = socials.find((s) => s.icon === 'github');
   const linkedin = socials.find((s) => s.icon === 'linkedin');
+
+  usePointerTilt('.hero-actions .btn', 'magnet');
 
   return (
     <div className="home-page">
@@ -15,7 +27,9 @@ const Home = () => {
         <section className="hero">
           <p className="hero-greeting">Hi, my name is</p>
           <h1 className="hero-title">{greeting.name}</h1>
-          <h2 className="hero-subtitle">{greeting.title}</h2>
+          <h2 className="hero-subtitle">
+            <Typed phrases={ROLES} />
+          </h2>
           <p className="hero-description">
             {greeting.subtitle.map((line, i) => (
               <span key={line}>
@@ -38,6 +52,10 @@ const Home = () => {
             )}
           </div>
         </section>
+      </Reveal>
+
+      <Reveal delay={80}>
+        <StatsRow />
       </Reveal>
 
       <Reveal delay={100}>

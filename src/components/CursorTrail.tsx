@@ -4,8 +4,8 @@ import { useTheme } from '../contexts/themeStore';
 
 /** Ink colour per theme. Additive blending means alpha reads as intensity. */
 const INK = {
-  dark: 'rgba(96, 116, 255, 0.10)',
-  light: 'rgba(74, 86, 226, 0.09)',
+  dark: 'rgba(96, 116, 255, 0.055)',
+  light: 'rgba(74, 86, 226, 0.05)',
 };
 
 const CursorTrail = () => {

@@ -6,14 +6,16 @@
 
 .page-content {
   flex-grow: 1;
-  /* Flex items default to min-width:auto, which lets a wide child (the
-     contribution calendar) stretch the page. Pin it so children scroll. */
+  /* As a column flex item this would size to its content, ignoring the
+     container's max-width; width:100% makes it fill the viewport up to it.
+     min-width:0 keeps a wide child (the calendar) from stretching the page. */
+  width: 100%;
   min-width: 0;
   padding-top: 7rem;
   padding-bottom: 3rem;
 }
 
-.page-wrapper { max-width: 1080px; margin: 0 auto; min-width: 0; }
+.page-wrapper { max-width: 1340px; margin: 0 auto; min-width: 0; }
 
 /* ── Navbar ─────────────────────────────────────────────────────────────── */
 .navbar {
@@ -31,9 +33,9 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  max-width: 1200px;
+  max-width: 1340px;
   margin: 0 auto;
-  padding: 0.9rem 1.5rem;
+  padding: 0.9rem clamp(1.25rem, 4vw, 3rem);
 }
 
 .logo {
@@ -233,7 +235,7 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
   gap: 1.5rem;
 }
 
@@ -246,7 +248,7 @@
 /* ── Timeline (experience + education) ──────────────────────────────────── */
 .timeline { display: flex; flex-direction: column; gap: 1.5rem; }
 
-.timeline-card { display: grid; grid-template-columns: 260px 1fr; gap: 2rem; }
+.timeline-card { display: grid; grid-template-columns: minmax(220px, 300px) 1fr; gap: clamp(1.5rem, 4vw, 3rem); }
 
 .timeline-meta h3 { font-size: 1.1rem; margin-bottom: 0.35rem; }
 .timeline-meta .company { color: var(--accent-color); font-weight: 600; font-size: 0.95rem; }
@@ -287,7 +289,7 @@
 /* ── Skills ─────────────────────────────────────────────────────────────── */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
   gap: 1.5rem;
 }
 
@@ -644,4 +646,101 @@ button:hover .gh-mark {
   a:focus-visible .gh-mark,
   button:hover .gh-mark { animation: none; }
   .gh-mark { transition: none; }
+}
+
+/* ── Typed hero subtitle ────────────────────────────────────────────────── */
+.hero-subtitle {
+  /* Reserve two lines so the layout doesn't jump as phrases change length. */
+  min-height: 2.6em;
+}
+
+.typed-caret {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 0.12em;
+  vertical-align: text-bottom;
+  background: var(--accent-color);
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+@keyframes caret-blink {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* ── Stats row ──────────────────────────────────────────────────────────── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+  gap: 1rem;
+  margin: 2.5rem 0 1rem;
+}
+
+.stat {
+  padding: 1.25rem 1.35rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+}
+
+.stat-value {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--accent-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* ── Page transition ────────────────────────────────────────────────────── */
+.page-transition {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.page-transition.is-shown { opacity: 1; transform: none; }
+
+/* ── Magnetic buttons & card tilt ───────────────────────────────────────── */
+.hero-actions .btn {
+  transform: translate3d(var(--pull-x, 0), var(--pull-y, 0), 0);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+/* The magnet already moves the button; drop the generic hover lift so the
+   two transforms don't fight. */
+.hero-actions .btn-primary:hover,
+.hero-actions .btn-secondary:hover {
+  transform: translate3d(var(--pull-x, 0), var(--pull-y, 0), 0) scale(1.03);
+}
+
+.project-card {
+  transform: perspective(900px) rotateX(var(--tilt-x, 0)) rotateY(var(--tilt-y, 0));
+  transform-style: preserve-3d;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s ease, border-color 0.3s ease;
+}
+/* Tilt replaces the generic card lift on project cards. */
+.project-card:hover {
+  transform: perspective(900px) rotateX(var(--tilt-x, 0)) rotateY(var(--tilt-y, 0)) translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--accent-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-transition { opacity: 1; transform: none; transition: none; }
+  .typed-caret { animation: none; }
+  .hero-actions .btn,
+  .project-card { transition: none; transform: none; }
+  .hero-actions .btn-primary:hover,
+  .hero-actions .btn-secondary:hover,
+  .project-card:hover { transform: none; }
 }
