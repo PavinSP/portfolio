@@ -41,7 +41,7 @@
    top-right corner. */
 .nav-links {
   margin: 0 auto;
-  padding-right: clamp(0px, 6vw, 110px);
+  padding-right: clamp(0px, 5vw, 72px);
 }
 
 .logo {
@@ -556,6 +556,18 @@ footer {
 .app-container {
   position: relative;
   z-index: 1;
+  /* Let clicks fall through the layout scaffolding to the sky behind it, so
+     the moon stays usable while still being painted underneath the page. */
+  pointer-events: none;
+}
+
+/* Everything that actually draws or is interactive takes clicks back. */
+.app-container :is(
+  nav, header, footer, a, button, input, textarea, select, summary,
+  .card, .pipeline, .stats-row, .contrib3d, .contrib-card, .cert-card,
+  .category-banner, .section-header, p, h1, h2, h3, h4, li, span, img, svg
+) {
+  pointer-events: auto;
 }
 
 /* ── Sky layer ──────────────────────────────────────────────────────────────
@@ -566,23 +578,25 @@ footer {
   inset: 0;
   pointer-events: none;
   overflow: hidden;
-  /* .app-container sits at z-index 1, so this layer must be above it for
-     the celestial button to be clickable at all. The glow and stars are
-     then pushed back behind the content with their own negative z-index,
-     which works because this layer does not paint a background itself. */
   z-index: 2;
 }
 
-/* Glow and stars: behind everything readable. */
+/* Glow and stars stay behind the content; only the celestial button is
+   allowed above it, and it lives in the navbar band where cards never go. */
 .night-glow,
 .day-glow,
 .night-star { z-index: -1; }
 
+
+
 /* The sun/moon doubles as the theme switch: the one part of the sky that
-   accepts input. Fixed (not absolute) so it leaves the layer's flow, and
-   below the navbar's z-index of 100. */
+   accepts input. It sits behind the content, so clicks reach it only where
+   the page is not painting anything — which is exactly the empty margin it
+   occupies. */
 .celestial {
   position: fixed;
+  /* Above the page so it can be clicked, but below the navbar (z-index 100)
+     and vertically inside the navbar band, so it never covers a card. */
   z-index: 40;
   padding: 0;
   border: none;
@@ -616,11 +630,12 @@ footer {
 }
 
 .night-moon {
-  /* Clear the fixed navbar so the disc is never clipped by it. */
-  top: 7rem;
-  right: 9%;
-  width: 88px;
-  height: 88px;
+  /* Tucked into the top-right corner beside the nav, where no card is ever
+     drawn — the old 7rem/9% position sat right on top of the cards. */
+  top: 0.4rem;
+  right: 1.5rem;
+  width: 46px;
+  height: 46px;
   /* Warm-grey regolith with a bright limb toward the light source. */
   background:
     radial-gradient(circle at 34% 30%, #fdfdfa 0%, #ece9e0 38%, #cfcbc0 68%, #a9a49a 100%);
@@ -681,9 +696,11 @@ footer {
   50%      { opacity: var(--star-opacity, 0.7); transform: scale(1); }
 }
 
+/* A small drift only — it now sits in the navbar band, so large movement
+   would push it out of place. */
 @keyframes moon-drift {
   from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(-14px, 12px, 0); }
+  to   { transform: translate3d(-3px, 2px, 0); }
 }
 
 /* ── Day ────────────────────────────────────────────────────────────────── */
@@ -699,10 +716,10 @@ footer {
 }
 
 .day-sun {
-  top: 7rem;
-  right: 9%;
-  width: 84px;
-  height: 84px;
+  top: 0.5rem;
+  right: 1.6rem;
+  width: 40px;
+  height: 40px;
   animation: moon-drift 30s ease-in-out infinite alternate;
 }
 
