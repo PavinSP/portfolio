@@ -11,11 +11,12 @@ import Education from './pages/Education';
 import Experience from './pages/Experience';
 import Projects from './pages/Projects';
 import Skills from './pages/Skills';
+import Certifications from './pages/Certifications';
 import './App.css';
 
 /** Old routed URLs (#/projects) map onto the new anchors (#projects) so
  *  links already shared keep working. */
-const LEGACY = ['education', 'experience', 'projects', 'skills'];
+const LEGACY = ['education', 'experience', 'projects', 'skills', 'certifications'];
 
 const useLegacyHashRedirect = () => {
   useEffect(() => {
@@ -66,6 +67,9 @@ function App() {
           </Section>
           <Section id="skills">
             <Skills />
+          </Section>
+          <Section id="certifications">
+            <Certifications />
           </Section>
         </main>
         <Footer />

@@ -43,6 +43,14 @@ export type Degree = {
   modules: Module[];
 };
 
+export type Certification = {
+  name: string;
+  issuer: string;
+  /** Ongoing courses have no certificate to link yet. */
+  status?: 'ongoing' | 'completed';
+  url?: string;
+};
+
 export type SkillGroup = {
   title: string;
   skills: (string | Link)[];

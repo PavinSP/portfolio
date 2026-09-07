@@ -3,7 +3,7 @@
 // components read from it and never hardcode copy.
 // ─────────────────────────────────────────────────────────────────────────────
 import type {
-  Contact, Degree, Greeting, Job, ProjectCategory, SkillGroup, Social,
+  Certification, Contact, Degree, Greeting, Job, ProjectCategory, SkillGroup, Social,
 } from './types';
 
 export const greeting: Greeting = {
@@ -319,16 +319,42 @@ export const skills: SkillGroup[] = [
       'Streamlit, Jupyter Notebook',
     ],
   },
+];
+
+export const certifications: Certification[] = [
   {
-    title: 'Certifications & Courses',
-    skills: [
-      'Computer Vision Specialization (UCB, Coursera) — Ongoing',
-      'RAG and Agentic AI Professional Certificate (IBM) — Ongoing',
-      { label: 'Data Warehouse Fundamentals (Udemy)', url: 'certificates/Data_Warehouse_Certificate.pdf', icon: 'award' },
-      { label: 'Data Modeling & Relational DB Design (Udemy)', url: 'certificates/Data_Modeling_Certificate.pdf', icon: 'award' },
-      { label: 'Intro to Linux (Udemy)', url: 'certificates/Intro_to_Linux_Certificate.pdf', icon: 'award' },
-      { label: 'Data Science for Beginners (NASSCOM)', url: 'certificates/NASSCOM_Data_Science_Certificate.pdf', icon: 'award' },
-    ],
+    name: 'Computer Vision Specialization',
+    issuer: 'University of Colorado Boulder · Coursera',
+    status: 'ongoing',
+  },
+  {
+    name: 'RAG and Agentic AI Professional Certificate',
+    issuer: 'IBM',
+    status: 'ongoing',
+  },
+  {
+    name: 'Data Warehouse Fundamentals',
+    issuer: 'Udemy',
+    status: 'completed',
+    url: 'certificates/Data_Warehouse_Certificate.pdf',
+  },
+  {
+    name: 'Data Modeling & Relational DB Design',
+    issuer: 'Udemy',
+    status: 'completed',
+    url: 'certificates/Data_Modeling_Certificate.pdf',
+  },
+  {
+    name: 'Intro to Linux',
+    issuer: 'Udemy',
+    status: 'completed',
+    url: 'certificates/Intro_to_Linux_Certificate.pdf',
+  },
+  {
+    name: 'Data Science for Beginners',
+    issuer: 'NASSCOM',
+    status: 'completed',
+    url: 'certificates/NASSCOM_Data_Science_Certificate.pdf',
   },
 ];
 

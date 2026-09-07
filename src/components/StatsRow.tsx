@@ -1,6 +1,6 @@
 import { useCountUp } from '../hooks/useCountUp';
 import { useReveal } from '../hooks/useReveal';
-import { experience, projects, skills } from '../data/portfolio';
+import { certifications, experience, projects, skills } from '../data/portfolio';
 
 type Stat = { value: number; suffix?: string; label: string };
 
@@ -22,17 +22,13 @@ const StatsRow = () => {
 
   // Derived from the content config so these can never drift out of date.
   const projectCount = projects.reduce((n, group) => n + group.projects.length, 0);
-  const skillCount = skills
-    .filter((group) => group.title !== 'Certifications & Courses')
-    .reduce((n, group) => n + group.skills.length, 0);
-  const certCount =
-    skills.find((group) => group.title === 'Certifications & Courses')?.skills.length ?? 0;
+  const skillCount = skills.reduce((n, group) => n + group.skills.length, 0);
 
   const stats: Stat[] = [
     { value: projectCount, label: 'Projects & publications' },
     { value: skillCount, suffix: '+', label: 'Tools & frameworks' },
     { value: experience.length, label: 'Industry roles' },
-    { value: certCount, label: 'Certifications' },
+    { value: certifications.length, label: 'Certifications' },
   ];
 
   return (

@@ -8,6 +8,7 @@ const sections = [
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
+  { id: 'certifications', label: 'Certificates' },
 ];
 
 const IDS = ['home', ...sections.map((s) => s.id)];

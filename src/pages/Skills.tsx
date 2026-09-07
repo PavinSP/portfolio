@@ -9,7 +9,7 @@ const Skills = () => (
   <div className="page-wrapper">
     <SectionHeader
       eyebrow="04. What I work with"
-      title="Technical Skills & Certifications"
+      title="Technical Skills"
       subtitle="Tools and frameworks I use across the AI, data and infrastructure stack."
     />
 
