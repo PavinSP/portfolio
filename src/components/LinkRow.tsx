@@ -8,7 +8,13 @@ const LinkRow = ({ links }: { links?: Link[] }) => {
   return (
     <div className="link-row">
       {links.map((link) => (
-        <a key={link.url} href={resolve(link.url)} target="_blank" rel="noopener noreferrer">
+        <a
+          key={link.url}
+          className={link.icon === 'demo' ? 'link-demo' : undefined}
+          href={resolve(link.url)}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <LinkIcon icon={link.icon} /> {link.label}
         </a>
       ))}

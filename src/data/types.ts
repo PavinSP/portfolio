@@ -4,7 +4,7 @@
 export type Link = {
   label: string;
   url: string;
-  icon?: 'github' | 'external' | 'award' | 'paper';
+  icon?: 'github' | 'external' | 'award' | 'paper' | 'demo';
 };
 
 export type Project = {

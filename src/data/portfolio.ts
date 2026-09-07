@@ -192,7 +192,7 @@ export const projects: ProjectCategory[] = [
         ],
         tech: ['ElevenLabs', 'React', 'Express', 'Gemini', 'Claude API'],
         links: [
-          { label: 'Live Demo', url: 'https://titanom-hackathon-8xts.vercel.app/', icon: 'external' },
+          { label: 'Try the live demo', url: 'https://titanom-hackathon-8xts.vercel.app/', icon: 'demo' },
           { label: 'GitHub', url: 'https://github.com/PavinSP/titanom-hackathon', icon: 'github' },
         ],
       },

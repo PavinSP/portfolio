@@ -16,6 +16,12 @@ export const LinkedInIcon = ({ size = 20 }: IconProps) => (
 export const LinkIcon = ({ icon, size = 16 }: { icon?: string; size?: number }) => {
   if (icon === 'github') return <GithubIcon size={size} />;
   if (icon === 'award') return <span aria-hidden="true">🏆</span>;
+  if (icon === 'demo')
+    return (
+      <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+    );
   if (icon === 'paper') return <span aria-hidden="true">📄</span>;
   return <span aria-hidden="true">🔗</span>;
 };
