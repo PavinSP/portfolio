@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Mail } from 'lucide-react';
 import { contact, greeting, socials } from '../data/portfolio';
 import { GithubIcon, LinkedInIcon } from '../components/Icons';
-import ContributionGraph from '../components/ContributionGraph';
+import Contributions3D from '../components/Contributions3D';
 import Reveal from '../components/Reveal';
 import Typed from '../components/Typed';
 import StatsRow from '../components/StatsRow';
@@ -63,7 +63,7 @@ const Home = () => {
           <h3 className="category-heading" style={{ marginTop: 0 }}>
             GitHub Activity
           </h3>
-          <ContributionGraph username="PavinSP" since={2022} />
+          <Contributions3D username="PavinSP" />
         </section>
       </Reveal>
 

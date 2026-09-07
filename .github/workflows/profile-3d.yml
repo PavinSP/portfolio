@@ -1,0 +1,51 @@
+name: Generate 3D contribution graph
+
+on:
+  schedule:
+    # Once a day at 18:00 UTC.
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/profile-3d.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Writes SVGs into profile-3d-contrib/ at the repo root.
+      - name: Generate
+        uses: yoshi389111/github-profile-3d-contrib@v0.9.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+          # Keep the run cheap; the calendar does not need every repo.
+          MAX_REPOS: '100'
+
+      # The site is published from dist/, which is built from public/, so the
+      # generated art has to live under public/ to reach the live page.
+      - name: Copy into public/
+        run: |
+          mkdir -p public/profile-3d
+          cp profile-3d-contrib/profile-night-green.svg public/profile-3d/ 2>/dev/null || true
+          cp profile-3d-contrib/profile-gitblock.svg     public/profile-3d/ 2>/dev/null || true
+          cp profile-3d-contrib/profile-night-view.svg   public/profile-3d/ 2>/dev/null || true
+          ls -la public/profile-3d/
+
+      - name: Commit
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add profile-3d-contrib public/profile-3d
+          if git diff --staged --quiet; then
+            echo "No change in generated art."
+          else
+            git commit -m "chore: refresh 3D contribution graph [skip ci]"
+            git push
+          fi

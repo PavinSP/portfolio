@@ -907,3 +907,27 @@ button:hover .gh-mark {
   .hero-actions .btn-secondary:hover,
   .project-card:hover { transform: none; }
 }
+
+/* ── 3D contribution art ────────────────────────────────────────────────────
+   A generated SVG, so it is sized rather than styled internally.        */
+.contrib3d {
+  margin: 0;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.contrib3d-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* The SVG carries its own background, so round it to match the card. */
+  border-radius: calc(var(--radius-lg) - 6px);
+}
+
+/* The lego variant ships a white baseplate; give the card a matching ground
+   in light mode so the panel does not float on a different white. */
+.contrib3d-light { background: #ffffff; }
