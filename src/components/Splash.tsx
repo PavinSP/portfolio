@@ -1,8 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { greeting } from '../data/portfolio';
 
 /** Keep in sync with the .splash animation timings in App.css. */
 const DURATION = 4200;
+/** The name starts typing once the mark has drawn. */
+const TYPE_START = 1700;
+const TYPE_TOTAL = 1500;
 
 const prefersReducedMotion = () =>
   window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
@@ -11,6 +14,33 @@ const Splash = () => {
   // Plays on every page load. Decided before first paint so it never flashes
   // when skipped for reduced motion.
   const [visible, setVisible] = useState(() => !prefersReducedMotion());
+  const [typed, setTyped] = useState('');
+  const frame = useRef(0);
+
+  // Type the name out one character at a time, in step with the CSS timings.
+  useEffect(() => {
+    if (!visible) return;
+
+    const name = greeting.name;
+    const perChar = TYPE_TOTAL / name.length;
+    let start = 0;
+
+    const tick = (now: number) => {
+      if (!start) start = now;
+      const elapsed = now - start - TYPE_START;
+
+      if (elapsed >= 0) {
+        const count = Math.min(Math.floor(elapsed / perChar), name.length);
+        setTyped(name.slice(0, count));
+        if (count >= name.length) return;
+      }
+
+      frame.current = requestAnimationFrame(tick);
+    };
+
+    frame.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame.current);
+  }, [visible]);
 
   useEffect(() => {
     if (!visible) return;
@@ -65,7 +95,11 @@ const Splash = () => {
           </text>
         </svg>
 
-        <p className="splash-signature">{greeting.name}</p>
+        <p className="splash-signature">
+          <span className="splash-prompt">&gt;&nbsp;</span>
+          {typed}
+          <span className="splash-cursor" />
+        </p>
       </div>
     </div>
   );
