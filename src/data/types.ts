@@ -46,6 +46,8 @@ export type Degree = {
 export type Certification = {
   name: string;
   issuer: string;
+  /** Platform whose logo to show, when one exists in the icon set. */
+  provider?: 'Coursera' | 'Udemy' | 'IBM' | 'NASSCOM';
   /** Ongoing courses have no certificate to link yet. */
   status?: 'ongoing' | 'completed';
   url?: string;

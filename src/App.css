@@ -1148,6 +1148,12 @@ button:hover .gh-mark {
   font-size: 1.3rem;
 }
 
+/* A provider logo sits on a neutral ground so its brand colour reads. */
+.cert-mark:has(.tech-icon) {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
 .cert-body { min-width: 0; }
 
 .cert-name {

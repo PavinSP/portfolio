@@ -31,6 +31,11 @@ exports.TECH_ICON_TITLES = {
   Streamlit: 'Streamlit',
   n8n: 'n8n',
 
+  // Certificate providers (only those present in the icon set; IBM and
+  // NASSCOM have no entry, so those cards keep the generic mark).
+  Coursera: 'Coursera',
+  Udemy: 'Udemy',
+
   // Infra / tools
   Docker: 'Docker',
   Linux: 'Linux',

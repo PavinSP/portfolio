@@ -1,6 +1,8 @@
 import { certifications } from '../data/portfolio';
 import { resolve } from '../utils/assetUrl';
 import Reveal from '../components/Reveal';
+import TechIcon from '../components/TechIcon';
+import { findIcon } from '../data/techIcons';
 import SectionHeader from '../components/SectionHeader';
 
 const Certifications = () => (
@@ -14,12 +16,21 @@ const Certifications = () => (
     <div className="cert-grid">
       {certifications.map((cert, i) => {
         const ongoing = cert.status === 'ongoing';
+        // Only Coursera and Udemy have marks in the icon set; the rest keep
+        // the generic status glyph.
+        const hasLogo = cert.provider ? Boolean(findIcon(cert.provider)) : false;
 
         return (
           <Reveal key={cert.name} delay={i * 70} stretch>
             <article className={`card cert-card ${ongoing ? 'is-ongoing' : ''}`}>
               <span className="cert-mark" aria-hidden="true">
-                {ongoing ? '◔' : '🏆'}
+                {hasLogo && cert.provider ? (
+                  <TechIcon tech={cert.provider} size={20} />
+                ) : ongoing ? (
+                  '◔'
+                ) : (
+                  '🏆'
+                )}
               </span>
 
               <div className="cert-body">
