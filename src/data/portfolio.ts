@@ -344,6 +344,13 @@ export const certifications: Certification[] = [
     status: 'ongoing',
   },
   {
+    name: 'Develop Generative AI Applications: Get Started',
+    issuer: 'IBM · Coursera',
+    provider: 'IBM',
+    status: 'completed',
+    url: 'certificates/IBM_GenAI_Applications_Certificate.pdf',
+  },
+  {
     name: 'Data Warehouse Fundamentals',
     issuer: 'Udemy',
     provider: 'Udemy',
