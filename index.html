@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>website</title>
+    <meta name="description" content="M.Sc. Artificial Intelligence student at THWS. Computer vision, generative AI, NLP and machine learning projects." />
+    <title>Pavin Sumathi Palanichamy — AI &amp; Machine Learning</title>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GM41M7QE3Z"></script>
     <script>
@@ -13,6 +14,18 @@
       gtag('js', new Date());
 
       gtag('config', 'G-GM41M7QE3Z');
+    </script>
+    <script>
+      // Apply the stored/preferred theme before first paint to avoid a flash.
+      try {
+        var t = JSON.parse(localStorage.getItem('pavin-theme'));
+        if (t !== 'dark' && t !== 'light') {
+          t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+        document.documentElement.dataset.theme = t;
+      } catch (e) {
+        document.documentElement.dataset.theme = 'dark';
+      }
     </script>
   </head>
   <body>

@@ -1,55 +1,38 @@
-const Experience = () => {
-  return (
-    <div className="page-wrapper fade-in">
-      <div className="section-header">
-        <span className="section-number">02.</span>
-        <h2 className="section-title">Professional Experience</h2>
-        <div className="section-line"></div>
-      </div>
-      
-      <div className="experience-list">
-        {/* Cognizant */}
-        <div className="experience-item">
-          <div className="experience-meta">
-            <h3>Programmer Analyst Trainee</h3>
-            <p className="company">Cognizant Technology Solutions</p>
-            <p className="date mono-text">Dec 2024 — Apr 2025</p>
-            <a href="/portfolio/certificates/Cognizant_Offer_Letter.pdf" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', marginTop: '0.75rem', color: 'var(--accent-color)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, border: '1px solid var(--border-color)', padding: '0.25rem 0.75rem', borderRadius: '4px', backgroundColor: 'var(--bg-card)' }}>
-              🏆 View Offer Letter
-            </a>
-          </div>
-          <div className="experience-details">
-            <ul>
-              <li>Worked within an agile software development team, learning how different roles collaborate to ship reliable enterprise systems.</li>
-              <li>Built automated data pipelines in Python and SQL on Microsoft Azure.</li>
-              <li>Integrated REST APIs to ingest, orchestrate, and process structured and semi-structured data from disparate sources.</li>
-              <li>Automated data validation and quality checks, benchmarking pipeline reliability across transformation workflows to ensure zero data loss.</li>
-              <li>Documented technical processes clearly and presented results to both technical and non-technical stakeholders, bridging the gap between engineering and business.</li>
-            </ul>
-          </div>
-        </div>
+import { experience } from '../data/portfolio';
+import LinkRow from '../components/LinkRow';
+import Reveal from '../components/Reveal';
+import SectionHeader from '../components/SectionHeader';
 
-        {/* Edify */}
-        <div className="experience-item">
-          <div className="experience-meta">
-            <h3>Software Engineering Intern</h3>
-            <p className="company">Edify Techno Solutions</p>
-            <p className="date mono-text">May 2024</p>
-            <a href="/portfolio/certificates/Edify_Internship_Certificate.pdf" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', marginTop: '0.75rem', color: 'var(--accent-color)', textDecoration: 'none', fontSize: '0.85rem', fontWeight: 600, border: '1px solid var(--border-color)', padding: '0.25rem 0.75rem', borderRadius: '4px', backgroundColor: 'var(--bg-card)' }}>
-              🏆 View Certificate
-            </a>
-          </div>
-          <div className="experience-details">
-            <ul>
-              <li>Contributed to full-stack application development, seamlessly integrating backend business logic with frontend interactive applications using React.</li>
-              <li>Assisted with rigorous testing and logging to identify failure points early, ensuring stable and reproducible behaviour in production environments.</li>
-              <li>Maintained comprehensive technical documentation to support knowledge transfer and onboarding within the development team.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+const Experience = () => (
+  <div className="page-wrapper">
+    <SectionHeader
+      eyebrow="02. Where I've worked"
+      title="Professional Experience"
+      subtitle="Enterprise data engineering and full-stack development across agile teams."
+    />
+
+    <div className="timeline">
+      {experience.map((job, i) => (
+        <Reveal key={job.company} delay={i * 90}>
+          <article className="card timeline-card">
+            <div className="timeline-meta">
+              <h3>{job.role}</h3>
+              <p className="company">{job.company}</p>
+              <p className="date">{job.date}</p>
+              <LinkRow links={job.links} />
+            </div>
+            <div className="timeline-details">
+              <ul>
+                {job.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        </Reveal>
+      ))}
     </div>
-  );
-};
+  </div>
+);
 
 export default Experience;

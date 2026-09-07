@@ -1,247 +1,45 @@
-const GithubIcon = ({ size = 20 }: { size?: number }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-  </svg>
+import { projects } from '../data/portfolio';
+import LinkRow from '../components/LinkRow';
+import Reveal from '../components/Reveal';
+import SectionHeader from '../components/SectionHeader';
+
+const Projects = () => (
+  <div className="page-wrapper">
+    <SectionHeader
+      eyebrow="03. What I've built"
+      title="Featured Projects"
+      subtitle="Computer vision, generative AI, NLP and machine learning work from research, hackathons and publications."
+    />
+
+    {projects.map((group) => (
+      <section key={group.category}>
+        <h3 className="category-heading">{group.category}</h3>
+        <div className="projects-grid">
+          {group.projects.map((project, i) => (
+            <Reveal key={project.name} delay={i * 80} stretch>
+              <article className="card project-card">
+                <LinkRow links={project.links} />
+                <h3 className="project-name">
+                  {project.name}
+                  {project.badge && <span className="badge">{project.badge}</span>}
+                </h3>
+                <div className="project-desc">
+                  {project.description.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+                <ul className="pill-list">
+                  {project.tech.map((tech) => (
+                    <li key={tech}>{tech}</li>
+                  ))}
+                </ul>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
 );
-
-const Projects = () => {
-  return (
-    <div className="page-wrapper fade-in">
-      <div className="section-header">
-        <span className="section-number">03.</span>
-        <h2 className="section-title">Featured Projects</h2>
-        <div className="section-line"></div>
-      </div>
-      
-      {/* Computer Vision Section */}
-      <h3 style={{ color: 'var(--accent-color)', marginBottom: '1.5rem', marginTop: '1rem', fontSize: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
-        Computer Vision
-      </h3>
-      <div className="projects-grid">
-        
-        <div className="project-card">
-          <div className="project-top">
-            <h3 className="project-name">Real-Time Driver Drowsiness Detection</h3>
-            <div className="project-desc">
-              <p>Fine-tuned MobileNetV3-Small in PyTorch for eye-state classification on the MRL Eye dataset (84,898 infrared images), reaching 98.2% validation accuracy.</p>
-              <p>Benchmarked single-frame CPU inference at 5.4 ms (~185 FPS), proving viability for on-device edge deployment. Integrated MediaPipe for real-time facial landmark tracking and PERCLOS calculation.</p>
-            </div>
-          </div>
-          <ul className="project-tech-list mono-text">
-            <li>PyTorch</li>
-            <li>MobileNetV3</li>
-            <li>MediaPipe</li>
-            <li>NumPy</li>
-          </ul>
-        </div>
-
-        <div className="project-card">
-          <div className="project-top">
-            <h3 className="project-name">CellFoundry: Foundation Models for Instance Segmentation <span style={{fontSize: '0.8rem', padding: '0.2rem 0.5rem', marginLeft: '0.5rem', borderRadius: '4px', backgroundColor: 'var(--accent-color)', color: '#fff'}}>Ongoing</span></h3>
-            <div className="project-desc">
-              <p>Working under Prof. Dr. Magda Gregorová to benchmark and fine-tune foundation models (Micro-SAM, CellSAM) for adipocyte instance segmentation in brightfield microscopy.</p>
-              <p>Scope includes robust image preprocessing and systematic experiment design in collaboration with IMES Schweinfurt to advance medical imaging analysis.</p>
-            </div>
-          </div>
-          <ul className="project-tech-list mono-text">
-            <li>SAM Models</li>
-            <li>Computer Vision</li>
-            <li>Medical Imaging</li>
-          </ul>
-        </div>
-
-      </div>
-
-      {/* Generative AI Section */}
-      <h3 style={{ color: 'var(--accent-color)', marginBottom: '1.5rem', marginTop: '3rem', fontSize: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
-        Generative AI
-      </h3>
-      <div className="projects-grid">
-        
-        <div className="project-card">
-          <div className="project-top">
-            <div className="project-header-flex">
-              <div className="project-links">
-                <a href="https://titanom-hackathon-8xts.vercel.app/" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  🔗 Live Demo
-                </a>
-                <a href="https://github.com/PavinSP/titanom-hackathon" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  <GithubIcon size={16} /> GitHub
-                </a>
-              </div>
-            </div>
-            <h3 className="project-name">Teach It To Grandma: Voice AI That Grades Understanding, Not Keywords <span style={{fontSize: '0.8rem', padding: '0.2rem 0.5rem', marginLeft: '0.5rem', borderRadius: '4px', backgroundColor: 'var(--accent-color)', color: '#fff'}}>🏆 ElevenLabs Sonderpreis</span></h3>
-            <div className="project-desc">
-              <p>A voice app where you explain a concept out loud to an AI "Grandma" persona (ElevenLabs Conversational AI) who pushes back on jargon and vague answers instead of teaching it back to you, testing real understanding via the Feynman technique.</p>
-              <p>Built a Claude 4.5 Sonnet grading layer (via an OpenAI-compatible gateway) on an Express backend that judges whether each point was genuinely explained versus just keyword-matched, replacing the original plain-JS keyword grading as the source of truth on the recap screen. Won the ElevenLabs Sonderpreis for Best Project Built With ElevenLabs, awarded 3 months of ElevenLabs Scale.</p>
-            </div>
-          </div>
-          <ul className="project-tech-list mono-text">
-            <li>ElevenLabs</li>
-            <li>React</li>
-            <li>Express</li>
-            <li>Claude API</li>
-          </ul>
-        </div>
-
-        <div className="project-card">
-          <div className="project-top">
-            <div className="project-header-flex">
-              <div className="project-links">
-                <a href="https://github.com/PavinSP/SSOT---Single-Source-of-Truth" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  <GithubIcon size={16} /> GitHub
-                </a>
-              </div>
-            </div>
-            <h3 className="project-name">SSOT: AI-Powered Triage for Construction-Project Communication</h3>
-            <div className="project-desc">
-              <p>Built at the ConStructAI Hackathon (CAIRO.THWS) to turn messy construction communication (emails, chats, notes) into a verified, categorized, routable record. Zero-shot classification into 7 project categories plus question-answering-based detail extraction, cross-referenced against live-parsed IFC/BIM building objects.</p>
-              <p>Every extraction lands in an unverified buffer first; a human reviews and approves before anything routes to a target system (Schedule, Cost, QA, Task, Issue Log) or triggers a WhatsApp notification via Twilio.</p>
-            </div>
-          </div>
-          <ul className="project-tech-list mono-text">
-            <li>HuggingFace Transformers</li>
-            <li>Streamlit</li>
-            <li>IFC/BIM Parsing</li>
-            <li>Python</li>
-          </ul>
-        </div>
-
-        <div className="project-card">
-          <div className="project-top">
-            <div className="project-header-flex">
-              <div className="project-links">
-                <a href="https://tijer.org/tijer/papers/TIJERC001274.pdf" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  🔗 Read Paper
-                </a>
-                <a href="https://tijer.org/tijer/certificatemanager.php?a_rid=153454" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  🏆 Certificate
-                </a>
-              </div>
-            </div>
-            <h3 className="project-name">LLM-Orchestrated Resume Screening</h3>
-            <div className="project-desc">
-              <p>Built a multi-step pipeline using LangChain and Azure OpenAI for structured information extraction from highly unstructured candidate documents.</p>
-              <p>Co-authored <em>"Python-Powered ML for Next-Gen Resume Screening"</em>. Published in TIJER (Vol 11, Issue 7, July 2024).</p>
-            </div>
-          </div>
-          <ul className="project-tech-list mono-text">
-            <li>LangChain</li>
-            <li>Azure OpenAI</li>
-            <li>React</li>
-            <li>Flask</li>
-          </ul>
-        </div>
-
-      </div>
-
-      {/* Natural Language Processing Section */}
-      <h3 style={{ color: 'var(--accent-color)', marginBottom: '1.5rem', marginTop: '3rem', fontSize: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
-        Natural Language Processing
-      </h3>
-      <div className="projects-grid">
-
-        <div className="project-card">
-          <div className="project-top">
-            <div className="project-header-flex">
-              <div className="project-links">
-                <a href="https://github.com/PavinSP/SniffTest-DIAL-Hackathon" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  <GithubIcon size={16} /> GitHub
-                </a>
-              </div>
-            </div>
-            <h3 className="project-name">SniffTest: AI-Powered Disinformation Detection</h3>
-            <div className="project-desc">
-              <p>Led the AI/ML workstream at the DAAD East-West Dialogue Hackathon. Fine-tuned DistilBERT for multi-class text classification, reaching 86% F1 score.</p>
-              <p>Deployed the model behind a REST API in a Docker container for a live interactive demo with real users.</p>
-            </div>
-          </div>
-          <ul className="project-tech-list mono-text">
-            <li>PyTorch</li>
-            <li>DistilBERT</li>
-            <li>Docker</li>
-            <li>REST API</li>
-          </ul>
-        </div>
-
-      </div>
-
-      {/* Machine Learning Section */}
-      <h3 style={{ color: 'var(--accent-color)', marginBottom: '1.5rem', marginTop: '3rem', fontSize: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '0.5rem' }}>
-        Machine Learning
-      </h3>
-      <div className="projects-grid">
-
-        <div className="project-card">
-          <div className="project-top">
-            <div className="project-header-flex">
-              <div className="project-links">
-                <a href="https://github.com/PavinSP/moa-prediction-thesis/blob/main/MoA_Prediction_Bachelor_Thesis.pdf" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  🔗 Thesis Report
-                </a>
-                <a href="https://github.com/PavinSP/moa-prediction-thesis" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  <GithubIcon size={16} /> GitHub
-                </a>
-              </div>
-            </div>
-            <h3 className="project-name">GPU-Accelerated Multi-Label Classification for Mechanism of Action Prediction in High-Throughput Drug Discovery</h3>
-            <div className="project-desc">
-              <p>Bachelor Thesis Project: Developed an end-to-end multi-label classification pipeline utilizing GPU-accelerated XGBoost to predict the biological mechanisms of action of various drugs.</p>
-              <p>Engineered comprehensive statistical features and handled extreme class imbalance, evaluating robust model performance via ROC-AUC and Precision-Recall metrics.</p>
-            </div>
-          </div>
-          <ul className="project-tech-list mono-text">
-            <li>Python</li>
-            <li>XGBoost</li>
-            <li>Scikit-learn</li>
-            <li>Pandas</li>
-          </ul>
-        </div>
-        <div className="project-card">
-          <div className="project-top">
-            <h3 className="project-name">AI-Driven Ticket Confirmation Prediction</h3>
-            <div className="project-desc">
-              <p>Built an end-to-end ML pipeline predicting waitlisted railway ticket confirmations using CatBoost, evaluating robustness with F1-score and ROC-AUC.</p>
-              <p>Developed an interactive Streamlit dashboard to present complex predictive results to non-technical stakeholders.</p>
-            </div>
-          </div>
-          <ul className="project-tech-list mono-text">
-            <li>Python</li>
-            <li>CatBoost</li>
-            <li>Streamlit</li>
-            <li>Scikit-learn</li>
-          </ul>
-        </div>
-
-        <div className="project-card">
-          <div className="project-top">
-            <div className="project-header-flex">
-              <div className="project-links">
-                <a href="https://tijer.org/tijer/papers/TIJERB001114.pdf" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  🔗 Read Paper
-                </a>
-                <a href="https://tijer.org/tijer/certificatemanager.php?a_rid=151048" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  🏆 Certificate
-                </a>
-              </div>
-            </div>
-            <h3 className="project-name">Bionic Eye Research Publication</h3>
-            <div className="project-desc">
-              <p>Research study exploring the mechanics, constraints, and technological improvements of the Argus II retinal prosthesis system for restoring vision.</p>
-              <p>Co-authored <em>"Bionic Eye"</em>. Published in TIJER (Vol 11, Issue 2, February 2024).</p>
-            </div>
-          </div>
-          <ul className="project-tech-list mono-text">
-            <li>Research</li>
-            <li>Prosthetics</li>
-            <li>Biomedical Engineering</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-  );
-};
 
 export default Projects;

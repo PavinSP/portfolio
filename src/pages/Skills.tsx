@@ -1,85 +1,45 @@
-const Skills = () => {
-  return (
-    <div className="page-wrapper fade-in">
-      <div className="section-header">
-        <span className="section-number">04.</span>
-        <h2 className="section-title">Technical Skills & Certifications</h2>
-        <div className="section-line"></div>
-      </div>
-      
-      <div className="skills-container">
-        <div className="skill-category">
-          <h3>Computer Vision & Deep Learning</h3>
-          <ul className="skill-list mono-text">
-            <li>PyTorch, OpenCV, NumPy</li>
-            <li>Deep Neural Networks (CNNs, ResNet)</li>
-            <li>MobileNetV3, SAM Models (Micro-SAM, CellSAM)</li>
-            <li>Computer Vision (General)</li>
-            <li>Reinforcement Learning, Sensor Fusion (HMMs, Bayesian)</li>
-          </ul>
-        </div>
-        
-        <div className="skill-category">
-          <h3>NLP, GenAI & Classical ML</h3>
-          <ul className="skill-list mono-text">
-            <li>HuggingFace Transformers, DistilBERT</li>
-            <li>OpenAI / Azure OpenAI APIs, LangChain</li>
-            <li>Prompt Engineering, RAG Pipelines</li>
-            <li>Natural Language Processing, Information Extraction</li>
-            <li>Scikit-learn, CatBoost, XGBoost</li>
-          </ul>
-        </div>
+import { skills } from '../data/portfolio';
+import { resolve } from '../utils/assetUrl';
+import { LinkIcon } from '../components/Icons';
+import Reveal from '../components/Reveal';
+import SectionHeader from '../components/SectionHeader';
 
-        <div className="skill-category">
-          <h3>Programming & Web</h3>
-          <ul className="skill-list mono-text">
-            <li>Python, SQL, Java, Bash</li>
-            <li>JavaScript, React, Flask</li>
-            <li>n8n (Workflow Automation)</li>
-            <li>REST APIs, JSON</li>
-          </ul>
-        </div>
+const Skills = () => (
+  <div className="page-wrapper">
+    <SectionHeader
+      eyebrow="04. What I work with"
+      title="Technical Skills & Certifications"
+      subtitle="Tools and frameworks I use across the AI, data and infrastructure stack."
+    />
 
-        <div className="skill-category">
-          <h3>Cloud, DevOps & Tools</h3>
-          <ul className="skill-list mono-text">
-            <li>Docker, Git & GitHub, CI/CD Concepts</li>
-            <li>Microsoft Azure (VMs, Synapse)</li>
-            <li>Linux (CLI)</li>
-            <li>Streamlit, Jupyter Notebook</li>
-          </ul>
-        </div>
-
-        <div className="skill-category">
-          <h3>Certifications & Courses</h3>
-          <ul className="skill-list mono-text">
-            <li>Computer Vision Specialization (UCB, Coursera) - <i>Ongoing</i></li>
-            <li>RAG and Agentic AI Professional Certificate (IBM) - <i>Ongoing</i></li>
-            <li>
-              <a href="/portfolio/certificates/Data_Warehouse_Certificate.pdf" target="_blank" rel="noopener noreferrer" style={{color: 'var(--accent-color)', textDecoration: 'none'}}>
-                Data Warehouse Fundamentals (Udemy) 🏆
-              </a>
-            </li>
-            <li>
-              <a href="/portfolio/certificates/Data_Modeling_Certificate.pdf" target="_blank" rel="noopener noreferrer" style={{color: 'var(--accent-color)', textDecoration: 'none'}}>
-                Data Modeling & Relational DB Design (Udemy) 🏆
-              </a>
-            </li>
-            <li>
-              <a href="/portfolio/certificates/Intro_to_Linux_Certificate.pdf" target="_blank" rel="noopener noreferrer" style={{color: 'var(--accent-color)', textDecoration: 'none'}}>
-                Intro to Linux (Udemy) 🏆
-              </a>
-            </li>
-            <li>
-              <a href="/portfolio/certificates/NASSCOM_Data_Science_Certificate.pdf" target="_blank" rel="noopener noreferrer" style={{color: 'var(--accent-color)', textDecoration: 'none'}}>
-                Data Science for Beginners (NASSCOM) 🏆
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div className="skills-grid">
+      {skills.map((group, i) => (
+        <Reveal key={group.title} delay={i * 80} stretch>
+          <article className="card skill-card">
+            <h3>{group.title}</h3>
+            <ul className="skill-list">
+              {group.skills.map((skill) =>
+                typeof skill === 'string' ? (
+                  <li key={skill}>{skill}</li>
+                ) : (
+                  <li key={skill.url}>
+                    <a
+                      className="inline-link"
+                      href={resolve(skill.url)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {skill.label} <LinkIcon icon={skill.icon} />
+                    </a>
+                  </li>
+                ),
+              )}
+            </ul>
+          </article>
+        </Reveal>
+      ))}
     </div>
-  );
-};
+  </div>
+);
 
 export default Skills;

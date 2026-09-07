@@ -1,51 +1,58 @@
-import { Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-const GithubIcon = ({ size = 20 }: { size?: number }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-  </svg>
-);
+import { Mail } from 'lucide-react';
+import { contact, greeting, socials } from '../data/portfolio';
+import { GithubIcon, LinkedInIcon } from '../components/Icons';
+import Reveal from '../components/Reveal';
 
 const Home = () => {
+  const github = socials.find((s) => s.icon === 'github');
+  const linkedin = socials.find((s) => s.icon === 'linkedin');
+
   return (
     <div className="home-page">
-      <section className="hero">
-        <div className="hero-content">
-          <h1 className="hero-title">
-            <span className="mono-accent">&gt;</span> Pavin_Sumathi_Palanichamy<span className="cursor-blink mono-accent">_</span>
-          </h1>
-          <h2 className="hero-subtitle">M.Sc. Student in Artificial Intelligence at THWS</h2>
+      <Reveal>
+        <section className="hero">
+          <p className="hero-greeting">Hi, my name is</p>
+          <h1 className="hero-title">{greeting.name}</h1>
+          <h2 className="hero-subtitle">{greeting.title}</h2>
           <p className="hero-description">
-            Building robust AI platforms, cloud infrastructure, and data-driven solutions.<br />
-            Bridging the gap between intelligent algorithms and scalable enterprise architecture.
+            {greeting.subtitle.map((line, i) => (
+              <span key={line}>
+                {line}
+                {i < greeting.subtitle.length - 1 && <br />}
+              </span>
+            ))}
           </p>
           <div className="hero-actions">
             <Link to="/projects" className="btn btn-primary">View Projects</Link>
-            <a href="https://github.com/PavinSP" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <GithubIcon size={18} /> GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/pavin-sp" target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-              LinkedIn
-            </a>
+            {github && (
+              <a href={github.url} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+                <GithubIcon size={18} /> GitHub
+              </a>
+            )}
+            {linkedin && (
+              <a href={linkedin.url} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
+                <LinkedInIcon size={18} /> LinkedIn
+              </a>
+            )}
           </div>
-        </div>
-      </section>
-      
-      <section className="section contact-section" style={{ paddingTop: '2rem' }}>
-        <div className="contact-content">
-          <span className="mono-text contact-tag">Want to collaborate?</span>
-          <h2 className="contact-title">Get In Touch</h2>
-          <p className="contact-desc">
-            I'm always open to discussing research opportunities, HiWi positions, or new challenges in AI, Cloud, and Infrastructure engineering. Feel free to reach out!
-          </p>
-          <div className="contact-details mono-text">
-            <p><a href="mailto:pavinsp122002@gmail.com" className="contact-link"><Mail size={16} style={{display: 'inline', verticalAlign: 'text-bottom'}} /> pavinsp122002@gmail.com</a></p>
-            <p>+49 162 3828298</p>
-            <p>Würzburg, Germany</p>
+        </section>
+      </Reveal>
+
+      <Reveal delay={100}>
+        <section className="contact-section">
+          <span className="contact-tag">{contact.tag}</span>
+          <h2 className="contact-title">{contact.heading}</h2>
+          <p className="contact-desc">{contact.description}</p>
+          <div className="contact-details">
+            <a href={`mailto:${contact.email}`}>
+              <Mail size={15} style={{ display: 'inline', verticalAlign: 'text-bottom' }} /> {contact.email}
+            </a>
+            <span>{contact.phone}</span>
+            <span>{contact.location}</span>
           </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
     </div>
   );
 };
