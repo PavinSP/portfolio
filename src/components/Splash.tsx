@@ -7,6 +7,23 @@ const DURATION = 4200;
 const TYPE_START = 1700;
 const TYPE_TOTAL = 1500;
 
+/** A 2-2-1 graph inside the hexagon. Coordinates are in the SVG's 200x200
+ *  viewBox, kept well inside the inner hexagon's bounds. */
+const NET_NODES = [
+  { x: 66, y: 80, r: 6 },    // input
+  { x: 66, y: 124, r: 6 },   // input
+  { x: 102, y: 62, r: 5.5 }, // hidden
+  { x: 102, y: 102, r: 5.5 },// hidden
+  { x: 102, y: 142, r: 5.5 },// hidden
+  { x: 140, y: 102, r: 7.5 },// output
+];
+
+const NET_EDGES: [number, number][] = [
+  [0, 2], [0, 3], [0, 4],
+  [1, 2], [1, 3], [1, 4],
+  [2, 5], [3, 5], [4, 5],
+];
+
 const prefersReducedMotion = () =>
   window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
 
@@ -84,15 +101,33 @@ const Splash = () => {
             strokeWidth="2.5"
             strokeLinejoin="round"
           />
-          <text
-            className="splash-initials"
-            x="100"
-            y="102"
-            textAnchor="middle"
-            dominantBaseline="central"
-          >
-            PSP
-          </text>
+          {/* A small neural graph: two input nodes, two hidden, one output.
+              Edges draw in first, then the nodes pop, so it reads as a
+              network assembling rather than a static icon. */}
+          <g className="splash-net">
+            <g className="splash-net-edges">
+              {NET_EDGES.map(([a, b]) => (
+                <line
+                  key={`${a}-${b}`}
+                  x1={NET_NODES[a].x}
+                  y1={NET_NODES[a].y}
+                  x2={NET_NODES[b].x}
+                  y2={NET_NODES[b].y}
+                  strokeWidth="1.6"
+                />
+              ))}
+            </g>
+            {NET_NODES.map((node, i) => (
+              <circle
+                key={i}
+                className="splash-net-node"
+                cx={node.x}
+                cy={node.y}
+                r={node.r}
+                style={{ ['--n' as string]: i }}
+              />
+            ))}
+          </g>
         </svg>
 
         <p className="splash-signature">

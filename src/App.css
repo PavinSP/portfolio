@@ -474,14 +474,27 @@ footer {
   animation: splash-draw 1.5s cubic-bezier(0.65, 0, 0.35, 1) 0.45s forwards;
 }
 
-.splash-initials {
-  fill: rgba(255, 255, 255, 0.34);
-  font-family: var(--font-heading);
-  font-size: 52px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
+/* Neural graph inside the hexagon: edges draw themselves, then the nodes
+   pop in from the input side outward. */
+.splash-net-edges line {
+  stroke: rgba(255, 255, 255, 0.42);
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
+  animation: splash-draw 1s cubic-bezier(0.65, 0, 0.35, 1) 0.95s forwards;
+}
+
+.splash-net-node {
+  fill: #fff;
   opacity: 0;
-  animation: splash-fade 0.8s ease 1.35s forwards;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: splash-node 0.45s cubic-bezier(0.34, 1.56, 0.64, 1)
+    calc(1.25s + var(--n, 0) * 0.09s) forwards;
+}
+
+@keyframes splash-node {
+  from { opacity: 0; transform: scale(0.2); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 /* The name is typed out character by character in JS (see Splash.tsx), so
