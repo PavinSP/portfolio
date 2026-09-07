@@ -552,10 +552,46 @@ footer {
 .sky-layer {
   position: fixed;
   inset: 0;
-  z-index: -1;
   pointer-events: none;
   overflow: hidden;
+  /* .app-container sits at z-index 1, so this layer must be above it for
+     the celestial button to be clickable at all. The glow and stars are
+     then pushed back behind the content with their own negative z-index,
+     which works because this layer does not paint a background itself. */
+  z-index: 2;
 }
+
+/* Glow and stars: behind everything readable. */
+.night-glow,
+.day-glow,
+.night-star { z-index: -1; }
+
+/* The sun/moon doubles as the theme switch: the one part of the sky that
+   accepts input. Fixed (not absolute) so it leaves the layer's flow, and
+   below the navbar's z-index of 100. */
+.celestial {
+  position: fixed;
+  z-index: 40;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 50%;
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+              filter 0.35s ease;
+}
+.celestial:hover { transform: scale(1.07); filter: brightness(1.08); }
+.celestial:active { transform: scale(0.97); }
+.celestial:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 8px;
+}
+/* Pause the drift on interaction so the target holds still under the
+   cursor and hover scaling is not fighting the keyframes. */
+.celestial:hover,
+.celestial:focus-visible { animation-play-state: paused; }
 
 /* ── Night ──────────────────────────────────────────────────────────────── */
 .night-glow {
@@ -568,13 +604,11 @@ footer {
 }
 
 .night-moon {
-  position: absolute;
   /* Clear the fixed navbar so the disc is never clipped by it. */
   top: 7rem;
   right: 9%;
   width: 88px;
   height: 88px;
-  border-radius: 50%;
   /* Warm-grey regolith with a bright limb toward the light source. */
   background:
     radial-gradient(circle at 34% 30%, #fdfdfa 0%, #ece9e0 38%, #cfcbc0 68%, #a9a49a 100%);
@@ -653,38 +687,79 @@ footer {
 }
 
 .day-sun {
-  position: absolute;
   top: 7rem;
   right: 9%;
-  width: 76px;
-  height: 76px;
+  width: 84px;
+  height: 84px;
   animation: moon-drift 30s ease-in-out infinite alternate;
 }
 
-.sun-core,
-.sun-halo {
+/* The visible photosphere. Hot white core falling to a deep orange edge —
+   the radial ramp is what makes it read as a glowing sphere rather than a
+   flat circle. */
+.sun-disc {
   position: absolute;
   inset: 0;
   border-radius: 50%;
-}
-
-.sun-core {
-  background: radial-gradient(circle at 42% 38%, #fff6e2 0%, #ffcf7a 46%, #ffa94d 78%, #f9903a 100%);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 46% 42%,
+      #fffdf6 0%,
+      #fff3c4 22%,
+      #ffd479 46%,
+      #ffab42 72%,
+      #f4832a 90%,
+      #dd6a18 100%);
   box-shadow:
-    0 0 22px rgba(255, 170, 80, 0.55),
-    0 0 58px rgba(255, 186, 110, 0.35);
+    inset 0 0 18px rgba(255, 128, 30, 0.4),
+    0 0 26px rgba(255, 160, 60, 0.5);
 }
 
-/* A soft corona that breathes, so the sun is not a flat disc. */
+/* Convection cells: faint brighter blotches so the surface is not uniform. */
+.sun-granule {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 252, 224, 0.9) 0%, transparent 70%);
+  filter: blur(3px);
+}
+
+/* Limb darkening: real suns are dimmer at the edge than the centre. */
+.sun-limb {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%,
+    transparent 58%,
+    rgba(198, 88, 12, 0.28) 84%,
+    rgba(163, 66, 6, 0.5) 100%);
+}
+
+/* Chromosphere: a tight rim just outside the disc. */
+.sun-corona {
+  position: absolute;
+  inset: -14%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(255, 190, 96, 0.5) 40%,
+    rgba(255, 170, 70, 0.22) 62%,
+    transparent 78%);
+}
+
+/* Outer glow that slowly breathes. */
 .sun-halo {
-  inset: -42%;
-  background: radial-gradient(circle, rgba(255, 186, 110, 0.34) 0%, rgba(255, 200, 140, 0.12) 46%, transparent 70%);
+  position: absolute;
+  inset: -55%;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(255, 178, 88, 0.3) 0%,
+    rgba(255, 200, 140, 0.13) 44%,
+    transparent 72%);
   animation: sun-pulse 7s ease-in-out infinite;
 }
 
 @keyframes sun-pulse {
-  0%, 100% { transform: scale(1);    opacity: 0.85; }
-  50%      { transform: scale(1.09); opacity: 1; }
+  0%, 100% { transform: scale(1);    opacity: 0.8; }
+  50%      { transform: scale(1.1);  opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -692,6 +767,9 @@ footer {
   .night-moon,
   .day-sun,
   .sun-halo { animation: none; }
+  .celestial { transition: none; }
+  .celestial:hover,
+  .celestial:active { transform: none; }
 }
 
 /* ── Animated GitHub mark ───────────────────────────────────────────────────

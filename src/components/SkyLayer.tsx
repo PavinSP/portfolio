@@ -42,8 +42,20 @@ const CRATERS: Crater[] = [
   { left: 78, top: 27, size: 4, depth: 0.15 },
 ];
 
+/** Granule cells give the photosphere its mottled texture. */
+const GRANULES = [
+  { left: 22, top: 30, size: 34, opacity: 0.3 },
+  { left: 58, top: 20, size: 27, opacity: 0.24 },
+  { left: 66, top: 55, size: 31, opacity: 0.26 },
+  { left: 30, top: 62, size: 29, opacity: 0.22 },
+  { left: 46, top: 42, size: 22, opacity: 0.18 },
+  { left: 12, top: 48, size: 19, opacity: 0.2 },
+  { left: 74, top: 32, size: 16, opacity: 0.16 },
+  { left: 44, top: 76, size: 18, opacity: 0.17 },
+];
+
 const SkyLayer = () => {
-  const { theme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   const stars = useMemo<Star[]>(() => {
     const rand = seeded(20260907);
@@ -58,26 +70,54 @@ const SkyLayer = () => {
     }));
   }, []);
 
-  if (theme === 'light') {
+  const isLight = theme === 'light';
+
+  // The body doubles as the theme switch, so it is a real button: reachable
+  // by keyboard and announced, even though the sky around it is decorative.
+  const bodyProps = {
+    type: 'button' as const,
+    onClick: toggleTheme,
+    'aria-label': `Switch to ${isLight ? 'dark' : 'light'} mode`,
+    title: `Switch to ${isLight ? 'dark' : 'light'} mode`,
+  };
+
+  if (isLight) {
     return (
-      <div className="sky-layer sky-day" aria-hidden="true">
-        <div className="day-glow" />
-        <div className="day-sun">
-          <span className="sun-core" />
-          <span className="sun-halo" />
-        </div>
+      <div className="sky-layer sky-day">
+        <div className="day-glow" aria-hidden="true" />
+        <button className="celestial day-sun" {...bodyProps}>
+          <span className="sun-halo" aria-hidden="true" />
+          <span className="sun-corona" aria-hidden="true" />
+          <span className="sun-disc" aria-hidden="true">
+            {GRANULES.map((cell, i) => (
+              <span
+                key={i}
+                className="sun-granule"
+                style={{
+                  left: `${cell.left}%`,
+                  top: `${cell.top}%`,
+                  width: `${cell.size}%`,
+                  height: `${cell.size}%`,
+                  opacity: cell.opacity,
+                }}
+              />
+            ))}
+            <span className="sun-limb" />
+          </span>
+        </button>
       </div>
     );
   }
 
   return (
-    <div className="sky-layer sky-night" aria-hidden="true">
-      <div className="night-glow" />
-      <div className="night-moon">
+    <div className="sky-layer sky-night">
+      <div className="night-glow" aria-hidden="true" />
+      <button className="celestial night-moon" {...bodyProps}>
         {CRATERS.map((crater, i) => (
           <span
             key={i}
             className="moon-crater"
+            aria-hidden="true"
             style={{
               left: `${crater.left}%`,
               top: `${crater.top}%`,
@@ -87,12 +127,13 @@ const SkyLayer = () => {
             }}
           />
         ))}
-        <span className="moon-shading" />
-      </div>
+        <span className="moon-shading" aria-hidden="true" />
+      </button>
       {stars.map((star, i) => (
         <span
           key={i}
           className="night-star"
+          aria-hidden="true"
           style={{
             left: `${star.left}%`,
             top: `${star.top}%`,
