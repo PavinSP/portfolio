@@ -3,6 +3,7 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import Splash from './components/Splash';
 import CursorTrail from './components/CursorTrail';
+import NightSky from './components/NightSky';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Education from './pages/Education';
@@ -16,6 +17,7 @@ function App() {
     <ThemeProvider>
       <Router>
         <Splash />
+        <NightSky />
         <CursorTrail />
         <div className="app-container">
           <Navbar />
