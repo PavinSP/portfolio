@@ -1,10 +1,10 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Navbar from './components/Navbar';
 import Splash from './components/Splash';
 import CursorTrail from './components/CursorTrail';
 import SkyLayer from './components/SkyLayer';
-import PageTransition from './components/PageTransition';
+import Section from './components/Section';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Education from './pages/Education';
@@ -13,29 +13,63 @@ import Projects from './pages/Projects';
 import Skills from './pages/Skills';
 import './App.css';
 
+/** Old routed URLs (#/projects) map onto the new anchors (#projects) so
+ *  links already shared keep working. */
+const LEGACY = ['education', 'experience', 'projects', 'skills'];
+
+const useLegacyHashRedirect = () => {
+  useEffect(() => {
+    const apply = () => {
+      const hash = window.location.hash.replace(/^#\/?/, '');
+      if (!hash) return;
+
+      const target = LEGACY.includes(hash) ? hash : null;
+      if (!target) return;
+
+      // Replace so the old form does not linger in history.
+      window.history.replaceState(null, '', `#${target}`);
+      document.getElementById(target)?.scrollIntoView({ behavior: 'auto' });
+    };
+
+    // Run after the sections have mounted.
+    const frame = requestAnimationFrame(apply);
+    window.addEventListener('hashchange', apply);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('hashchange', apply);
+    };
+  }, []);
+};
+
 function App() {
+  useLegacyHashRedirect();
+
   return (
     <ThemeProvider>
-      <Router>
-        <Splash />
-        <SkyLayer />
-        <CursorTrail />
-        <div className="app-container">
-          <Navbar />
-          <main className="container page-content">
-            <PageTransition>
-              <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/education" element={<Education />} />
-              <Route path="/experience" element={<Experience />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/skills" element={<Skills />} />
-              </Routes>
-            </PageTransition>
-          </main>
-          <Footer />
-        </div>
-      </Router>
+      <Splash />
+      <SkyLayer />
+      <CursorTrail />
+      <div className="app-container">
+        <Navbar />
+        <main className="container page-content">
+          <Section id="home">
+            <Home />
+          </Section>
+          <Section id="education">
+            <Education />
+          </Section>
+          <Section id="experience">
+            <Experience />
+          </Section>
+          <Section id="projects">
+            <Projects />
+          </Section>
+          <Section id="skills">
+            <Skills />
+          </Section>
+        </main>
+        <Footer />
+      </div>
     </ThemeProvider>
   );
 }

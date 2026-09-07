@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { Mail } from 'lucide-react';
 import { contact, greeting, socials } from '../data/portfolio';
 import { GithubIcon, LinkedInIcon } from '../components/Icons';
@@ -39,7 +38,19 @@ const Home = () => {
             ))}
           </p>
           <div className="hero-actions">
-            <Link to="/projects" className="btn btn-primary">View Projects</Link>
+            <a
+              href="#projects"
+              className="btn btn-primary"
+              onClick={(e) => {
+                e.preventDefault();
+                const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+                document.getElementById('projects')?.scrollIntoView({
+                  behavior: reduced ? 'auto' : 'smooth',
+                });
+              }}
+            >
+              View Projects
+            </a>
             {github && (
               <a href={github.url} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
                 <GithubIcon size={18} /> GitHub

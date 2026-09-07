@@ -864,13 +864,6 @@ button:hover .gh-mark {
   color: var(--text-secondary);
 }
 
-/* ── Page transition ────────────────────────────────────────────────────── */
-.page-transition {
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.4s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.page-transition.is-shown { opacity: 1; transform: none; }
 
 /* ── Magnetic buttons & card tilt ───────────────────────────────────────── */
 .hero-actions .btn {
@@ -899,7 +892,6 @@ button:hover .gh-mark {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .page-transition { opacity: 1; transform: none; transition: none; }
   .typed-caret { animation: none; }
   .hero-actions .btn,
   .project-card { transition: none; transform: none; }
@@ -931,3 +923,21 @@ button:hover .gh-mark {
 /* The lego variant ships a white baseplate; give the card a matching ground
    in light mode so the panel does not float on a different white. */
 .contrib3d-light { background: #ffffff; }
+
+/* ── Single-page sections ───────────────────────────────────────────────────
+   Each nav target is a section on one scrolling page. scroll-margin-top
+   keeps headings clear of the fixed navbar when jumped to.             */
+.page-section {
+  /* Navbar is ~70px; leave a little breathing room above each heading. */
+  scroll-margin-top: 6.5rem;
+}
+
+.page-section + .page-section {
+  padding-top: 4rem;
+  margin-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 720px) {
+  .page-section + .page-section { padding-top: 2.5rem; margin-top: 1.5rem; }
+}

@@ -1,30 +1,51 @@
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { useScrollSpy } from '../hooks/useScrollSpy';
 
-const pages = [
-  { to: '/education', label: 'Education' },
-  { to: '/experience', label: 'Experience' },
-  { to: '/projects', label: 'Projects' },
-  { to: '/skills', label: 'Skills' },
+const sections = [
+  { id: 'education', label: 'Education' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'skills', label: 'Skills' },
 ];
+
+const IDS = ['home', ...sections.map((s) => s.id)];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const active = useScrollSpy(IDS);
+
+  const jump = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    setOpen(false);
+
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+    // Keep the address bar in step without triggering a jump.
+    window.history.replaceState(null, '', id === 'home' ? '#' : `#${id}`);
+  };
 
   return (
     <nav className="navbar">
       <div className="nav-content">
-        <Link to="/" className="logo" onClick={() => setOpen(false)}>
+        <a href="#" className="logo" onClick={jump('home')}>
           Pavin SP
-        </Link>
+        </a>
 
         <ul className={`nav-links ${open ? 'open' : ''}`}>
-          {pages.map((page) => (
-            <li key={page.to}>
-              <NavLink to={page.to} onClick={() => setOpen(false)}>
-                {page.label}
-              </NavLink>
+          {sections.map((section) => (
+            <li key={section.id}>
+              <a
+                href={`#${section.id}`}
+                className={active === section.id ? 'active' : undefined}
+                aria-current={active === section.id ? 'true' : undefined}
+                onClick={jump(section.id)}
+              >
+                {section.label}
+              </a>
             </li>
           ))}
         </ul>
