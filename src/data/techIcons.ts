@@ -73,10 +73,14 @@ export const findIcon = (tech: string) => {
   return icon ? { title, ...icon } : null;
 };
 
-/** Providers with no CC0 mark available. simple-icons omits IBM's logo for
- *  trademark reasons, so these render as typographic lettermarks rather than
- *  a copied or invented logo. */
+/** Provider marks supplied as images, for logos with no CC0 vector in the
+ *  icon set. Files live in public/provider-logos/. */
+export const PROVIDER_IMAGES: Record<string, string> = {
+  IBM: 'provider-logos/ibm.png',
+};
+
+/** Providers with neither a CC0 vector nor a supplied image fall back to a
+ *  typographic lettermark rather than a copied or invented logo. */
 export const PROVIDER_LETTERMARKS: Record<string, { text: string; color: string }> = {
-  IBM: { text: 'IBM', color: '#4d8ecc' },
   NASSCOM: { text: 'NAS', color: '#e0708a' },
 };

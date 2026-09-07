@@ -1255,6 +1255,15 @@ button:hover .gh-mark {
   background: var(--border-color);
 }
 
+/* Supplied provider logo (e.g. IBM). The mark is transparent, so it needs a
+   neutral ground to read against in both themes. */
+.cert-logo-img {
+  display: block;
+  width: 26px;
+  height: auto;
+  object-fit: contain;
+}
+
 /* Lettermark stands in for providers with no CC0 logo. */
 .cert-lettermark {
   font-family: var(--font-heading);
