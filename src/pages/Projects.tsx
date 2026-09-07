@@ -80,6 +80,7 @@ const Projects = () => {
             <li>ElevenLabs</li>
             <li>React</li>
             <li>Express</li>
+            <li>Gemini</li>
             <li>Claude API</li>
           </ul>
         </div>
