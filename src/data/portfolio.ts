@@ -159,28 +159,6 @@ export const experience: Job[] = [
 
 export const projects: ProjectCategory[] = [
   {
-    category: 'Computer Vision',
-    projects: [
-      {
-        name: 'Real-Time Driver Drowsiness Detection',
-        description: [
-          'Fine-tuned MobileNetV3-Small in PyTorch for eye-state classification on the MRL Eye dataset (84,898 infrared images), reaching 98.2% validation accuracy.',
-          'Benchmarked single-frame CPU inference at 5.4 ms (~185 FPS), proving viability for on-device edge deployment. Integrated MediaPipe for real-time facial landmark tracking and PERCLOS calculation.',
-        ],
-        tech: ['PyTorch', 'MobileNetV3', 'MediaPipe', 'NumPy'],
-      },
-      {
-        name: 'CellFoundry: Foundation Models for Instance Segmentation',
-        badge: 'Ongoing',
-        description: [
-          'Working under Prof. Dr. Magda Gregorová to benchmark and fine-tune foundation models (Micro-SAM, CellSAM) for adipocyte instance segmentation in brightfield microscopy.',
-          'Scope includes robust image preprocessing and systematic experiment design in collaboration with IMES Schweinfurt to advance medical imaging analysis.',
-        ],
-        tech: ['SAM Models', 'Computer Vision', 'Medical Imaging'],
-      },
-    ],
-  },
-  {
     category: 'Generative AI',
     projects: [
       {
@@ -218,6 +196,28 @@ export const projects: ProjectCategory[] = [
           { label: 'Read Paper', url: 'https://tijer.org/tijer/papers/TIJERC001274.pdf', icon: 'paper' },
           { label: 'Certificate', url: 'https://tijer.org/tijer/certificatemanager.php?a_rid=153454', icon: 'award' },
         ],
+      },
+    ],
+  },
+  {
+    category: 'Computer Vision',
+    projects: [
+      {
+        name: 'Real-Time Driver Drowsiness Detection',
+        description: [
+          'Fine-tuned MobileNetV3-Small in PyTorch for eye-state classification on the MRL Eye dataset (84,898 infrared images), reaching 98.2% validation accuracy.',
+          'Benchmarked single-frame CPU inference at 5.4 ms (~185 FPS), proving viability for on-device edge deployment. Integrated MediaPipe for real-time facial landmark tracking and PERCLOS calculation.',
+        ],
+        tech: ['PyTorch', 'MobileNetV3', 'MediaPipe', 'NumPy'],
+      },
+      {
+        name: 'CellFoundry: Foundation Models for Instance Segmentation',
+        badge: 'Ongoing',
+        description: [
+          'Working under Prof. Dr. Magda Gregorová to benchmark and fine-tune foundation models (Micro-SAM, CellSAM) for adipocyte instance segmentation in brightfield microscopy.',
+          'Scope includes robust image preprocessing and systematic experiment design in collaboration with IMES Schweinfurt to advance medical imaging analysis.',
+        ],
+        tech: ['SAM Models', 'Computer Vision', 'Medical Imaging'],
       },
     ],
   },
