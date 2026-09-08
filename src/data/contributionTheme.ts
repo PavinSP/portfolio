@@ -6,6 +6,6 @@ export const github = {
 };
 
 export const brand = {
-  light: ['#eef0fb', '#c3c9f5', '#949ded', '#6b76e5', '#4a56e2'],
-  dark: ['#20263a', '#39428f', '#5460c6', '#7381ea', '#9aa6ff'],
+  light: ['#fbeeec', '#f5c3bd', '#ed9489', '#e56b5c', '#c0392f'],
+  dark: ['#3a2320', '#8f3931', '#c6544a', '#ea7365', '#ff9a8c'],
 };

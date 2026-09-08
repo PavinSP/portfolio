@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Splash from './components/Splash';
 import CursorTrail from './components/CursorTrail';
 import SkyLayer from './components/SkyLayer';
+import NeuralBackdrop from './components/NeuralBackdrop';
 import Section from './components/Section';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -49,6 +50,7 @@ function App() {
     <ThemeProvider>
       <Splash />
       <SkyLayer />
+      <NeuralBackdrop />
       <CursorTrail />
       <div className="app-container">
         <Navbar />

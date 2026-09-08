@@ -432,7 +432,7 @@ footer {
 
 /* ── Intro splash ───────────────────────────────────────────────────────────
    A hexagon monogram that draws itself, then a signature that writes on,
-   over a deep navy field — after the splash on ashutoshhathidara.com.
+   over a deep red field — after the splash on ashutoshhathidara.com.
    Runs ~4.2s and replays on every page load. Timings must stay in sync
    with DURATION in Splash.tsx.                                          */
 .splash {
@@ -441,9 +441,9 @@ footer {
   z-index: 9999;
   display: grid;
   place-items: center;
-  /* Fixed navy regardless of theme, so the intro always reads the same. */
-  background: #16205a;
-  background-image: radial-gradient(120% 90% at 50% 0%, #1d2a70, #101a4a 70%);
+  /* Fixed deep red regardless of theme, so the intro always reads the same. */
+  background: #5a1616;
+  background-image: radial-gradient(120% 90% at 50% 0%, #7a1d1d, #3d0f0f 70%);
   animation: splash-out 0.7s ease 3.5s forwards;
 }
 
@@ -521,7 +521,7 @@ footer {
 }
 
 .splash-prompt {
-  color: #7c8cff;
+  color: #ff7a6b;
   font-weight: 700;
 }
 
@@ -530,7 +530,7 @@ footer {
   width: 0.6ch;
   height: 1.05em;
   margin-left: 0.08em;
-  background: #7c8cff;
+  background: #ff7a6b;
   animation: splash-blink 1s steps(1) infinite;
 }
 
@@ -1380,3 +1380,20 @@ button:hover .gh-mark {
   .link-row .link-demo:hover,
 .pipeline-demo:hover { transform: none; }
 }
+
+/* ── Neural backdrop ────────────────────────────────────────────────────────
+   Drifting nodes linked by edges, behind the content and inert.        */
+.backdrop-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* The sun/moon stays (it is the theme switch); its decorative star field and
+   glow give way to the neural net. */
+.night-star,
+.night-glow,
+.day-glow { display: none; }
