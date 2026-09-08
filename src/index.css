@@ -36,20 +36,20 @@
 }
 
 :root[data-theme='dark'] {
-  --bg-primary: #0e1016;
-  --bg-secondary: #161a24;
-  --bg-card: #171b26;
-  --text-primary: #e9edf7;
-  --text-secondary: #9aa3bd;
+  --bg-primary: #120f0f;
+  --bg-secondary: #1c1717;
+  --bg-card: #1d1818;
+  --text-primary: #f2ebe9;
+  --text-secondary: #b3a4a1;
   --accent-color: #ff7a6b;
   --accent-color-hover: #ff9585;
   --accent-soft: rgba(255, 122, 107, 0.14);
   --badge-bg: #ff7a6b;
-  --badge-text: #0e1016;
-  --border-color: #262c3d;
+  --badge-text: #120f0f;
+  --border-color: #352c2c;
   --card-shadow: 0 10px 30px -18px rgba(0, 0, 0, 0.75);
   --card-shadow-hover: 0 22px 46px -20px rgba(0, 0, 0, 0.85);
-  --nav-bg: rgba(14, 16, 22, 0.86);
+  --nav-bg: rgba(18, 15, 15, 0.86);
 
   color-scheme: dark;
 }
