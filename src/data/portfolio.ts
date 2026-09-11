@@ -182,6 +182,7 @@ export const projects: ProjectCategory[] = [
         ],
         tech: ['HuggingFace Transformers', 'Streamlit', 'IFC/BIM Parsing', 'Python'],
         links: [
+          { label: 'Try the live demo', url: 'https://pavinsp.github.io/SSOT---Single-Source-of-Truth/', icon: 'demo' },
           { label: 'GitHub', url: 'https://github.com/PavinSP/SSOT---Single-Source-of-Truth', icon: 'github' },
         ],
       },
@@ -232,6 +233,7 @@ export const projects: ProjectCategory[] = [
         ],
         tech: ['PyTorch', 'DistilBERT', 'Docker', 'REST API'],
         links: [
+          { label: 'Try the live demo', url: 'https://pavinsp.github.io/snifftest-web/', icon: 'demo' },
           { label: 'GitHub', url: 'https://github.com/PavinSP/SniffTest-DIAL-Hackathon', icon: 'github' },
         ],
       },
@@ -240,6 +242,18 @@ export const projects: ProjectCategory[] = [
   {
     category: 'Machine Learning',
     projects: [
+      {
+        name: 'Sensor Fusion: Particle Filter for Multi-Object Tracking',
+        description: [
+          'Built a particle filter from scratch (Python/NumPy, no filtering libraries) to track multiple indistinguishable balls under projectile motion, from an unordered set of noisy, dropout-prone sensor observations where no observation is labelled with which object it came from.',
+          'Used systematic resampling to prevent particle degeneracy and tracked effective sample size to detect when the filter was losing track and needed re-diversifying, recovering per-object position estimates by clustering the multimodal particle distribution.',
+        ],
+        tech: ['Python', 'NumPy', 'Particle Filters', 'Bayesian Inference'],
+        links: [
+          { label: 'Try the live demo', url: 'https://pavinsp.github.io/Sensor-Fusion_Portfolio-2/', icon: 'demo' },
+          { label: 'GitHub', url: 'https://github.com/PavinSP/Sensor-Fusion_Portfolio-2', icon: 'github' },
+        ],
+      },
       {
         name: 'GPU-Accelerated Multi-Label Classification for Mechanism of Action Prediction in High-Throughput Drug Discovery',
         description: [
