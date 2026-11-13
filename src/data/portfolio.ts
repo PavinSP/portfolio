@@ -10,8 +10,8 @@ export const greeting: Greeting = {
   name: 'Pavin Sumathi Palanichamy',
   title: 'M.Sc. Student in Artificial Intelligence at THWS',
   subtitle: [
-    'Building robust AI platforms, cloud infrastructure, and data-driven solutions.',
-    'Bridging the gap between intelligent algorithms and scalable enterprise architecture.',
+    'Computer vision on real, messy data: camera traps, cell microscopy and driver eye images.',
+    'LLM apps built at hackathons, each checked against a baseline before I trust the numbers.',
   ],
 };
 
@@ -25,7 +25,7 @@ export const contact: Contact = {
   tag: 'Want to collaborate?',
   heading: 'Get In Touch',
   description:
-    "I'm always open to discussing research opportunities, HiWi positions, or new challenges in AI, Cloud, and Infrastructure engineering. Feel free to reach out!",
+    "I'm open to research collaborations, a 6-month internship from March 2027, and hackathon teams. Feel free to reach out!",
   email: 'pavinsp122002@gmail.com',
   phone: '+49 162 3828298',
   location: 'Würzburg, Germany',
@@ -35,11 +35,19 @@ export const education: Degree[] = [
   {
     degree: 'Master of Science in Artificial Intelligence',
     institution: 'THWS (Technical University of Applied Sciences Würzburg-Schweinfurt)',
-    location: 'Würzburg, Germany · Mar 2026 — Present',
+    location: 'Würzburg, Germany · Mar 2026 - Present',
     intro:
-      'Currently enrolled in the research-oriented Master of Artificial Intelligence (MAI) program, focusing on the deep mathematical and architectural foundations of intelligent systems.',
-    modulesHeading: 'Key First-Semester Modules (CAIRO):',
+      'Currently enrolled in the research-oriented Master of Artificial Intelligence (MAI) program, focusing on the mathematical and architectural foundations of intelligent systems.',
+    modulesHeading: 'Selected Modules (CAIRO):',
     modules: [
+      {
+        title: 'Second Semester (Winter 2026/27, ongoing)',
+        points: [
+          {
+            text: 'Computer Vision, Natural Language Processing, Fundamentals of Mobile Robotics, Ethics and Fundamentals of AI, Entrepreneurship for Engineers, and the CellFoundry project module.',
+          },
+        ],
+      },
       {
         title: 'Reasoning and Decision Making under Uncertainty',
         summary:
@@ -47,7 +55,7 @@ export const education: Degree[] = [
         points: [
           {
             label: 'Core Topics',
-            text: 'Deep dive into Reinforcement Learning (Markov Decision Processes, policy/value functions) and Sensor Fusion (Bayesian approaches, Hidden Markov Models, Viterbi algorithm).',
+            text: 'Reinforcement Learning (Markov Decision Processes, policy and value functions) and Sensor Fusion (Bayesian approaches, Hidden Markov Models, Viterbi algorithm).',
           },
           {
             label: 'Final Paper',
@@ -58,15 +66,15 @@ export const education: Degree[] = [
       {
         title: 'Introduction to Deep Learning',
         summary:
-          'Studied under Prof. Dr. Magda Gregorová. Advanced exploration of deep neural network architectures and PyTorch implementations.',
+          'Studied under Prof. Dr. Magda Gregorová. Deep neural network architectures and PyTorch implementations.',
         points: [
           {
             label: 'Core Topics',
-            text: 'Deep Neural Networks, Backpropagation & Computation Graphs, Loss Functions & Gradient Descent, and advanced CNN architectures (AlexNet, VGG16, ResNet).',
+            text: 'Deep Neural Networks, Backpropagation and Computation Graphs, Loss Functions and Gradient Descent, and CNN architectures (AlexNet, VGG16, ResNet).',
           },
           {
-            label: 'Final Project ("Operation Cyber-Histology")',
-            text: 'Audited and reconstructed a sabotaged clinical triage ML pipeline. Rebuilt missing evaluation infrastructure and stabilized numerical explosions for models like AlexNet, VGG16, and ResNet18 on medical datasets.',
+            label: 'Final Project',
+            text: 'Clinical Image Triage, a team of 2 (see Projects): repairing and benchmarking a deliberately broken medical image classification pipeline.',
           },
         ],
       },
@@ -76,7 +84,7 @@ export const education: Degree[] = [
         points: [
           {
             label: 'Core Topics',
-            text: 'Orthogonal Projections, Ordinary Least Squares, Uncertainty and Statistical Tests for Model Evaluation, Probability Theory, and Optimization. Focused on the rigorous mathematical intuition necessary to understand and build models beyond treating them as "black boxes".',
+            text: 'Orthogonal Projections, Ordinary Least Squares, Uncertainty and Statistical Tests for Model Evaluation, Probability Theory, and Optimization.',
           },
         ],
       },
@@ -85,9 +93,9 @@ export const education: Degree[] = [
   {
     degree: 'Bachelor of Technology in AI & Data Science',
     institution: 'Panimalar Engineering College (Anna University)',
-    location: 'Chennai, India · Sep 2021 — May 2025',
+    location: 'Chennai, India · Sep 2021 - May 2025',
     intro:
-      'Graduated with a strong academic record, achieving a CGPA of 8.51 (equivalent to a 1.8 on the German grading scale).',
+      'Graduated with a CGPA of 8.51 (equivalent to 1.8 on the German grading scale), First Class with Distinction.',
     modulesHeading: 'Core AI & Data Science Curriculum (Regulation 2021):',
     modules: [
       {
@@ -128,18 +136,27 @@ export const education: Degree[] = [
 
 export const experience: Job[] = [
   {
+    role: 'Student Research Assistant (HiWi), AI4WildLIVE',
+    company: 'THWS Computer Vision & Imaging Lab',
+    date: 'Oct 2026 - Present',
+    bullets: [
+      "Working on a wildlife monitoring computer vision project, improving the team's training codebase and supporting the machine learning pipeline, which fine-tunes OWLv2 (open vocabulary object detection) via LoRA adapters on real camera trap imagery to identify wildlife species in genuinely uncontrolled field data.",
+      "Using the project's human-in-the-loop (HITL) annotation tool, where OWLv2 detection and SAM segmentation predictions assist annotators, who review and correct them rather than auto trusting model output, feeding back into training data quality.",
+      'Wrote a tested tool (14 tests) that reports what differs between two training runs: settings, data sizes and split files.',
+    ],
+  },
+  {
     role: 'Programmer Analyst Trainee',
     company: 'Cognizant Technology Solutions',
-    date: 'Dec 2024 — Apr 2025',
+    date: 'Dec 2024 - Apr 2025',
     links: [
       { label: 'View Offer Letter', url: 'certificates/Cognizant_Offer_Letter.pdf', icon: 'award' },
     ],
     bullets: [
-      'Ran systematic data-quality checks — schema validation, record-count verification, test-case validation — at each pipeline stage, to catch silent data loss before it reached downstream tables rather than discovering it at the far end.',
-      'Built ETL pipelines on Databricks and Spark parsing deeply nested JSON, using explicit schemas and custom UDFs to unnest arrays.',
-      'Automated pipelines in Python and SQL on Azure, integrating REST APIs over structured and semi-structured JSON and XML data.',
-      'Optimised PostgreSQL queries and worked across Azure and AWS in a distributed delivery team.',
-      'Documented technical processes clearly and presented results to both technical and non-technical stakeholders, bridging the gap between engineering and business.',
+      'Ran data-quality checks (schema validation, record counts, test cases) at every pipeline stage to catch silent data loss before it reached downstream tables.',
+      'Built ETL pipelines on Databricks and Spark parsing deeply nested JSON from REST APIs, using explicit schemas and custom UDFs.',
+      'Automated pipelines in Python and SQL on Azure over structured and semi-structured JSON and XML data.',
+      'Wrote and optimised PostgreSQL queries in a distributed delivery team.',
     ],
   },
   {
@@ -150,14 +167,47 @@ export const experience: Job[] = [
       { label: 'View Certificate', url: 'certificates/Edify_Internship_Certificate.pdf', icon: 'award' },
     ],
     bullets: [
-      'Full-stack development with Flask, Django and React, integrating backend and frontend through robust API communication with input validation and clean error handling.',
-      'Assisted with rigorous testing and logging to identify failure points early, ensuring stable and reproducible behaviour in production environments.',
-      'Maintained comprehensive technical documentation to support knowledge transfer and onboarding within the development team.',
+      'Full-stack development with Flask, Django and React, connecting backend and frontend through REST APIs with input validation and clean error handling.',
     ],
   },
 ];
 
 export const projects: ProjectCategory[] = [
+  {
+    category: 'Computer Vision',
+    projects: [
+      {
+        name: 'CellFoundry: Measuring the Fat Proportion in Microscopy Images',
+        badge: 'Ongoing',
+        description: [
+          'Research project for the Institute of Medical Engineering Schweinfurt (IMES), team of 3, mentor Prof. Dr. Magda Gregorová. It estimates what share of a microscopy image is covered by fat cells (fat pixels divided by all pixels), so the client can feed in an image and get one number back.',
+          'I ran cpsam, DINOCell (LoRA) and nnU-Net on 28 confidential images, with 6 held out for one final test and 3 runs each. Mean absolute error of the fat share, in points of image area: zero-shot cpsam 6.3, fine-tuned cpsam 1.8 ± 0.4, nnU-Net 3.0, DINOCell 4.4. With 6 test images, only the gap to zero-shot is clear.',
+          'Wrote the benchmark and the experiment tracking (numbers only, never images), found and fixed a loss bug that made DINOCell label every pixel as fat, and designed a review step where the model flags missed cells for an expert.',
+        ],
+        tech: ['PyTorch', 'Cellpose', 'nnU-Net', 'LoRA', 'Weights & Biases'],
+        links: [
+          { label: 'GitHub', url: 'https://github.com/cell-foundry-team/Cell-Foundry', icon: 'github' },
+        ],
+      },
+      {
+        name: 'Driver Drowsiness Detection from Eye State',
+        description: [
+          'Classifies whether a driver\'s eyes are open or closed from infrared eye images (Jun to Nov 2024). Fine-tuned MobileNetV3-Small with two-phase transfer learning on 84,898 images from the MRL Eye dataset: 98.2% validation accuracy.',
+          'Split by person, not by image, so no face is in both training and test: on 12 held-out subjects (18,449 images) it reached 93.5% accuracy and 92.8% macro F1. The classifier runs at 5.4 ms per frame on a CPU (about 185 FPS, one thread). Glasses and reflections are the main failure cases.',
+          'In progress: a live webcam demo with MediaPipe eye landmarks and PERCLOS to tell blinks from drowsiness. The model is trained on infrared images, so an ordinary webcam needs its own validation.',
+        ],
+        tech: ['PyTorch', 'MobileNetV3', 'MediaPipe', 'NumPy'],
+      },
+      {
+        name: 'Clinical Image Triage: Repairing and Benchmarking CNNs',
+        description: [
+          'Introduction to Deep Learning final assignment, team of 2. We audited a deliberately broken medical image classification pipeline (21 logged bugs) and benchmarked AlexNet, VGG16 and ResNet18 on four datasets; the best models reached 97.3% on cells, 89.6% on chest X-rays, 74.1% on skin lesions and 92.3% on organs, above every target.',
+          'My part: fixed AlexNet with batch normalisation (chest accuracy 82.2% to 89.2%) and redesigned GreenNet as a small ResNet with about 36x fewer parameters than ResNet18. It scored 97.8%, 89.7%, 74.5% and 91.8%, with about 0.27 ms inference per image against 2 to 2.4 ms for ResNet18.',
+        ],
+        tech: ['PyTorch', 'AlexNet', 'VGG16', 'ResNet18'],
+      },
+    ],
+  },
   {
     category: 'Generative AI',
     projects: [
@@ -165,14 +215,47 @@ export const projects: ProjectCategory[] = [
         name: 'Teach It To Grandma: Voice AI That Grades Understanding, Not Keywords',
         badge: '🏆 ElevenLabs Sonderpreis',
         description: [
-          'A voice app where you explain a concept out loud to an AI "Grandma" persona (ElevenLabs Conversational AI) who pushes back on jargon and vague answers instead of teaching it back to you, testing real understanding via the Feynman technique.',
-          'Built an LLM grading layer (via an OpenAI-compatible gateway) on an Express backend that judges whether each point was genuinely explained versus just keyword-matched, replacing the original plain-JS keyword grading as the source of truth on the recap screen. Model choice came from a measured comparison across four candidates: gemini-3.1-flash-lite correctly scored a jargon-stuffed answer 1/4 and a genuine explanation 4/4 in ~1.7s, while stronger models rubber-stamped the jargon. Claude 4.5 Sonnet handles the judgement-heavy jury and closed-world recall paths. Won the ElevenLabs Sonderpreis for Best Project Built With ElevenLabs, awarded 3 months of ElevenLabs Scale.',
+          'Student Hackathon 2026 at Titanom, team of 2. You explain a topic out loud to one of nine AI listeners (six learners, three workplace roles and one that asks like a whole team), and a second model call checks whether each point was explained or only mentioned. I built the app: React frontend, Express API, ElevenLabs voice and deployment.',
+          'The score is computed in code from per-point yes/no verdicts, with grading at temperature 0. I picked the grader by testing, four runs each: gemini-3.1-flash-lite scored a jargon-stuffed answer 1/4 and a good one 4/4, while two costlier models scored the jargon 3/4 and 4/4.',
+          'Teach It To Your Team (document mode): upload a PDF, PowerPoint or Word file and rehearse explaining it to a workplace listener. A local model reads and grades the file, and the server refuses to run this mode with a cloud model. Also a two-device quiz game, a Teach-Off leaderboard and German support. Won the ElevenLabs Sonderpreis (3 months of ElevenLabs Scale).',
         ],
-        tech: ['ElevenLabs', 'React', 'Express', 'Gemini', 'Claude API'],
+        tech: ['ElevenLabs', 'React', 'Express', 'Gemini', 'Ollama'],
         links: [
           { label: 'Try the live demo', url: 'https://titanom-hackathon-8xts.vercel.app/', icon: 'demo' },
-          { label: 'GitHub', url: 'https://github.com/PavinSP/titanom-hackathon', icon: 'github' },
+          { label: 'GitHub', url: 'https://github.com/PavinSP/Teach-It-To-Grandma', icon: 'github' },
         ],
+      },
+      {
+        name: 'Caire: AI Partner Matching for Caritas Würzburg',
+        description: [
+          'CAIRO.thws InclusivAI Hackathon 2026, team of 7. Ten scoring agents rate 224 regional companies against the Caritas values; missing evidence gives a neutral, low-confidence score instead of an invented one.',
+          'I built the web app (map, a cited page per company, German and English, an ElevenLabs voice guide) and a backend that researches and scores a new company on demand with Gemini and Google Search grounding.',
+        ],
+        tech: ['Gemini', 'Python', 'Leaflet', 'ElevenLabs'],
+        links: [
+          { label: 'Try the live demo', url: 'https://pavinsp.github.io/InclusivAI-Caire/', icon: 'demo' },
+          { label: 'GitHub', url: 'https://github.com/PavinSP/InclusivAI-Caire', icon: 'github' },
+        ],
+      },
+      {
+        name: 'LLM Cost Router: Picking the Cheapest Model per Task',
+        description: [
+          'European Hackathon League, viktor.com × TUM.ai, Munich 2026, team of 5 (Bayern CodeWerk). A rule-based router that picks the cheapest of nine LLMs (a 50x price range) able to do each task, fitted on one chunk of 1,000 tasks and applied cold to a held-out chunk.',
+          'The cost saving held: 35% of the logged bill on the held-out chunk. Our quality claim did not (the baseline was 0.53 points better, with a 95% confidence interval excluding zero), so we claimed a cost cut only.',
+        ],
+        tech: ['Python', 'LLM routing', 'Bootstrap CIs'],
+        links: [
+          { label: 'Team repo', url: 'https://github.com/hxrshx/ehl-bayern-codewerk', icon: 'github' },
+        ],
+      },
+      {
+        name: 'SonicScapes: Sound Checkpoints on Alpine Hiking Trails',
+        badge: '🥉 3rd place',
+        description: [
+          'Music & AI Hackathon 2026 in Salzburg (Austria × Japan, about 120 participants), in a team of six formed on site. Sound checkpoints along a real hiking trail, each tied to a 360 degree photo, in a CesiumJS 3D flyover.',
+          'I built the voice narration (a cast of ElevenLabs voices, each tied to a real checkpoint and a true fact about it) and the guided tour of the 3D demo, and gave the final pitch.',
+        ],
+        tech: ['ElevenLabs', 'React', 'CesiumJS'],
       },
       {
         name: 'SSOT: AI-Powered Triage for Construction-Project Communication',
@@ -189,7 +272,7 @@ export const projects: ProjectCategory[] = [
       {
         name: 'LLM-Orchestrated Resume Screening',
         description: [
-          'Built a multi-step pipeline using LangChain and Azure OpenAI for structured information extraction from highly unstructured candidate documents.',
+          'Built a multi-step pipeline using LangChain and Azure OpenAI for structured information extraction from unstructured candidate documents.',
           'Co-authored "Python-Powered ML for Next-Gen Resume Screening". Published in TIJER (Vol 11, Issue 7, July 2024).',
         ],
         tech: ['LangChain', 'Azure OpenAI', 'React', 'Flask'],
@@ -201,34 +284,12 @@ export const projects: ProjectCategory[] = [
     ],
   },
   {
-    category: 'Computer Vision',
-    projects: [
-      {
-        name: 'Real-Time Driver Drowsiness Detection',
-        description: [
-          'Fine-tuned MobileNetV3-Small in PyTorch for eye-state classification on the MRL Eye dataset (84,898 infrared images), reaching 98.2% validation accuracy.',
-          'Benchmarked single-frame CPU inference at 5.4 ms (~185 FPS), proving viability for on-device edge deployment. Integrated MediaPipe for real-time facial landmark tracking and PERCLOS calculation.',
-        ],
-        tech: ['PyTorch', 'MobileNetV3', 'MediaPipe', 'NumPy'],
-      },
-      {
-        name: 'CellFoundry: Foundation Models for Instance Segmentation',
-        badge: 'Ongoing',
-        description: [
-          'Working under Prof. Dr. Magda Gregorová to benchmark and fine-tune foundation models (Micro-SAM, CellSAM) for adipocyte instance segmentation in brightfield microscopy.',
-          'Scope includes robust image preprocessing and systematic experiment design in collaboration with IMES Schweinfurt to advance medical imaging analysis.',
-        ],
-        tech: ['SAM Models', 'Computer Vision', 'Medical Imaging'],
-      },
-    ],
-  },
-  {
     category: 'Natural Language Processing',
     projects: [
       {
         name: 'SniffTest: AI-Powered Disinformation Detection',
         description: [
-          'Led the AI/ML workstream at the DAAD East-West Dialogue Hackathon. Fine-tuned DistilBERT for multi-class text classification, reaching 86% F1 score.',
+          'Led the AI/ML workstream at the DAAD East-West Dialogue Hackathon: mapped 12,000+ LIAR statements into manipulation categories and fine-tuned DistilBERT with a class-weighted loss. Per-class F1 ranged from 25% on the hardest category to 87% on the easiest.',
           'Deployed the model behind a REST API in a Docker container for a live interactive demo with real users.',
         ],
         tech: ['PyTorch', 'DistilBERT', 'Docker', 'REST API'],
@@ -257,8 +318,8 @@ export const projects: ProjectCategory[] = [
       {
         name: 'GPU-Accelerated Multi-Label Classification for Mechanism of Action Prediction in High-Throughput Drug Discovery',
         description: [
-          'Bachelor Thesis Project: Developed an end-to-end multi-label classification pipeline utilizing GPU-accelerated XGBoost to predict the biological mechanisms of action of various drugs.',
-          'Engineered comprehensive statistical features and handled extreme class imbalance, evaluating robust model performance via ROC-AUC and Precision-Recall metrics.',
+          'Bachelor Thesis Project: 206 independent GPU-accelerated XGBoost classifiers on real NIH LINCS cell data (gene expression and cell viability across 100 cell lines), explained with SHAP.',
+          'Handled class imbalance as extreme as 0.08% positives with class weighting. Results: mean ROC-AUC 0.72, mean PR-AUC 0.13.',
         ],
         tech: ['Python', 'XGBoost', 'Scikit-learn', 'Pandas'],
         links: [
@@ -274,7 +335,7 @@ export const projects: ProjectCategory[] = [
         name: 'AI-Driven Ticket Confirmation Prediction',
         description: [
           'Built an end-to-end ML pipeline predicting waitlisted railway ticket confirmations using CatBoost, evaluating robustness with F1-score and ROC-AUC.',
-          'Developed an interactive Streamlit dashboard to present complex predictive results to non-technical stakeholders.',
+          'Developed an interactive Streamlit dashboard to present predictive results to non-technical stakeholders.',
         ],
         tech: ['Python', 'CatBoost', 'Streamlit', 'Scikit-learn'],
       },
@@ -298,48 +359,47 @@ export const skills: SkillGroup[] = [
   {
     title: 'Computer Vision & Deep Learning',
     skills: [
-      'PyTorch, OpenCV, NumPy',
-      'Deep Neural Networks (CNNs, ResNet)',
-      'MobileNetV3, SAM Models (Micro-SAM, CellSAM)',
-      'Computer Vision (General)',
-      'Reinforcement Learning, Sensor Fusion (HMMs, Bayesian)',
+      'PyTorch, OpenCV, MediaPipe',
+      'Object detection (OWLv2 with LoRA)',
+      'Segmentation (Cellpose, DINOCell, nnU-Net, SAM)',
+      'CNN transfer learning (MobileNetV3, ResNet, VGG)',
+      'Human-in-the-loop labelling, active learning',
     ],
   },
   {
-    title: 'NLP, GenAI & Classical ML',
+    title: 'ML & Evaluation',
     skills: [
-      'HuggingFace Transformers, DistilBERT',
-      'OpenAI / Azure OpenAI APIs, LangChain, LangGraph',
-      'Model Context Protocol (MCP), Agent Frameworks (CrewAI, AutoGen)',
-      'LLM-as-Judge Evaluation, Prompt Engineering, RAG Pipelines',
-      'Vector Databases (ChromaDB, FAISS)',
-      'Scikit-learn, CatBoost, XGBoost, SHAP',
+      'Scikit-learn, XGBoost, CatBoost, SHAP',
+      'Held-out splits, Dice, F1, IoU',
+      'Bootstrap confidence intervals',
+      'Weights & Biases, reproducible environments (uv)',
+      'Reinforcement learning, particle filters',
     ],
   },
   {
-    title: 'Programming & Web',
+    title: 'LLM Applications',
     skills: [
-      'Python, SQL, TypeScript, Java, C++, Bash',
-      'JavaScript, React, Express, Flask, Django',
-      'n8n (Workflow Automation)',
-      'REST APIs, JSON, XML',
+      'LLM APIs (Gemini, Claude, OpenAI-compatible)',
+      'Local models with Ollama',
+      'LangChain, LLM routing, LLM-as-judge grading',
+      'Agentic AI (multi-agent scoring, voice agents)',
+      'HuggingFace Transformers (DistilBERT fine-tuning)',
     ],
   },
   {
-    title: 'Cloud, DevOps & Tools',
+    title: 'Programming, Cloud & Tools',
     skills: [
-      'Docker, Git & GitHub, GitHub Actions',
-      'Microsoft Azure (VMs, Synapse, Data Factory), AWS',
-      'Databricks, Apache Spark, ETL/ELT Pipelines',
-      'PostgreSQL, Redis',
-      'Linux (CLI)',
-      'Streamlit, Jupyter Notebook',
+      'Python, SQL, TypeScript, JavaScript, C++ (coursework)',
+      'React, Express, Flask, Django, Streamlit',
+      'Databricks, Apache Spark, ETL pipelines',
+      'PostgreSQL, Redis, Docker, Git, GitHub Actions',
+      'Microsoft Azure, Linux (CLI)',
     ],
   },
 ];
 
 /** Abstract cover art per project category, in public/project-covers/.
- *  Purely decorative — they suggest the domain without depicting real work. */
+ *  Purely decorative: they suggest the domain without depicting real work. */
 export const categoryCovers: Record<string, string> = {
   'Computer Vision': 'project-covers/computer-vision.jpg',
   'Generative AI': 'project-covers/generative-ai.jpg',
@@ -432,26 +492,26 @@ export const certifications: Certification[] = [
  *  Stage detail comes from the project descriptions above. */
 export const pipelines = [
   {
-    title: 'Teach It To Grandma — understanding-graded voice loop',
+    title: 'Teach It To Grandma: understanding-graded voice loop',
     stages: [
-      { label: 'You explain', detail: 'Spoken explanation of a concept you chose' },
-      { label: 'ElevenLabs', detail: 'Conversational agent pushes back on jargon' },
+      { label: 'You explain', detail: 'Spoken explanation of a topic you chose, or a document you uploaded' },
+      { label: 'ElevenLabs', detail: 'One of nine AI listeners pushes back on jargon' },
       { label: 'Transcript', detail: 'Turn-by-turn record of what was actually said' },
-      { label: 'LLM grading', detail: 'gemini-3.1-flash-lite judges whether each point was genuinely explained' },
-      { label: 'Recap', detail: 'Per-point verdicts replace keyword matching' },
+      { label: 'LLM grading', detail: 'A yes/no verdict per point, at temperature 0' },
+      { label: 'Recap', detail: 'The score is computed in code from those verdicts' },
     ],
     outcome: 'Won the ElevenLabs Sonderpreis for Best Project Built With ElevenLabs.',
     demoUrl: 'https://titanom-hackathon-8xts.vercel.app/',
   },
   {
-    title: 'Driver drowsiness detection — inference pipeline',
+    title: 'Driver drowsiness detection: inference pipeline',
     stages: [
-      { label: 'Camera frame', detail: 'Live video captured frame by frame' },
-      { label: 'MediaPipe', detail: 'Facial landmarks locate the eye regions' },
-      { label: 'MobileNetV3', detail: 'Fine-tuned eye-state classifier, 98.2% val accuracy' },
-      { label: 'PERCLOS', detail: 'Percentage of eyelid closure over a rolling window' },
-      { label: 'Alert', detail: 'Drowsiness flagged when the threshold is crossed' },
+      { label: 'Eye image', detail: 'Infrared eye crop (live webcam input in progress)' },
+      { label: 'MobileNetV3', detail: 'Eye-state classifier: 93.5% accuracy on 12 unseen subjects' },
+      { label: 'MediaPipe', detail: 'Eye landmarks from live video (in progress)' },
+      { label: 'PERCLOS', detail: 'Share of time the eyes are closed (in progress)' },
+      { label: 'Alert', detail: 'Drowsiness flagged when the threshold is crossed (in progress)' },
     ],
-    outcome: '5.4 ms single-frame CPU inference (~185 FPS), viable for on-device edge deployment.',
+    outcome: '5.4 ms per frame for the classifier on a CPU (about 185 FPS). The live webcam and PERCLOS stages are in progress.',
   },
 ];

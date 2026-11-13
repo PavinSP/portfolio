@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=JetBrains+Mono:wght@400;500;700&family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
+/* Self-hosted so the splash never paints in a fallback face. The Google
+   Fonts round-trip lost the race against the splash on a cold cache, so a
+   first-time visitor saw Fira Code for the first moments of the intro.
+   `block` briefly hides the text rather than swapping mid-animation. */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: block;
+  src: url('/portfolio/fonts/jetbrains-mono-500.woff2') format('woff2');
+}
+
 /* ── Design tokens ──────────────────────────────────────────────────────────
    Light is the base palette; the dark block below overrides the same names.
    Change a colour once here and it propagates site-wide.                    */
