@@ -24,7 +24,7 @@ const NeuralBackdrop = () => {
     let h = 0;
     let nodes: Node[] = [];
 
-    const accent = theme === 'light' ? '192, 57, 47' : '255, 122, 107';
+    const accent = theme === 'light' ? '1, 102, 177' : '74, 163, 232';
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);

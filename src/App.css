@@ -432,7 +432,7 @@ footer {
 
 /* ── Intro splash ───────────────────────────────────────────────────────────
    A hexagon monogram that draws itself, then a signature that writes on,
-   over a deep red field — after the splash on ashutoshhathidara.com.
+   over a deep blue field — after the splash on ashutoshhathidara.com.
    Runs ~4.2s and replays on every page load. Timings must stay in sync
    with DURATION in Splash.tsx.                                          */
 .splash {
@@ -441,9 +441,9 @@ footer {
   z-index: 9999;
   display: grid;
   place-items: center;
-  /* Fixed deep red regardless of theme, so the intro always reads the same. */
-  background: #5a1616;
-  background-image: radial-gradient(120% 90% at 50% 0%, #7a1d1d, #3d0f0f 70%);
+  /* Fixed deep BMW blue regardless of theme, so the intro always reads the same. */
+  background: #04264a;
+  background-image: radial-gradient(120% 90% at 50% 0%, #0a4a85, #031a33 70%);
   animation: splash-out 0.7s ease 3.5s forwards;
 }
 
@@ -521,7 +521,7 @@ footer {
 }
 
 .splash-prompt {
-  color: #ff7a6b;
+  color: #6db8f5;
   font-weight: 700;
 }
 
@@ -530,7 +530,7 @@ footer {
   width: 0.6ch;
   height: 1.05em;
   margin-left: 0.08em;
-  background: #ff7a6b;
+  background: #6db8f5;
   animation: splash-blink 1s steps(1) infinite;
 }
 
