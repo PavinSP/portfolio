@@ -44,7 +44,7 @@ export const education: Degree[] = [
         title: 'Second Semester (Winter 2026/27, ongoing)',
         points: [
           {
-            text: 'Computer Vision, Natural Language Processing, Fundamentals of Mobile Robotics, Ethics and Fundamentals of AI, Entrepreneurship for Engineers, and the CellFoundry project module.',
+            text: 'Computer Vision, Natural Language Processing, Fundamentals of Mobile Robotics, Ethics and Fundamentals of AI, and the CellFoundry project module.',
           },
         ],
       },
@@ -437,7 +437,7 @@ export const certifications: Certification[] = [
     name: 'Build RAG Applications: Get Started',
     issuer: 'IBM · Coursera',
     provider: 'IBM',
-    status: 'completed',
+    status: 'ongoing',
   },
   {
     name: 'Introduction to Model Context Protocol',
