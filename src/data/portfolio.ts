@@ -441,9 +441,10 @@ export const certifications: Certification[] = [
   },
   {
     name: 'Introduction to Model Context Protocol',
-    issuer: 'Anthropic',
+    issuer: 'Anthropic · Coursera',
     provider: 'Anthropic',
     status: 'completed',
+    url: 'certificates/Anthropic_Intro_MCP_Certificate.pdf',
   },
   {
     name: 'Model Context Protocol: Advanced Topics',
